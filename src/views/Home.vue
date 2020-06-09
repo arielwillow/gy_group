@@ -4,7 +4,7 @@
     <img class="eye" src="@/assets/img/bird.png">
     <div class="start" @click="toLogin">
       <img class="text" src="@/assets/img/leaves.png">
-      <p class="text2">点击开始</p>
+      <p class="text2">即刻前往</p>
     </div>
     <img src="@/assets/img/3tian.png" class="footer1"/>
   </div>
@@ -17,7 +17,7 @@ export default {
     return {};
   },
   mounted() {
-    alert('建议点击右上角小天打开背景音乐哦~');
+    alert('点击右上角可以打开背景音乐哦~');
   },
   methods: {
     toLogin() {

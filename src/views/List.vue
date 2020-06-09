@@ -19,9 +19,8 @@
       />
     </div>
     <div>
-      <img class="confirm-text" src="@/assets/img/confirm-text.png">
       <div class="tipsDiv">
-      <p class="tips">不用担心没来得及点，一会儿会再转回来~</p>
+      <p class="tips">不用担心没来得及点，还会转回来哒~</p>
       </div>
     </div>
     <template v-if="selectedCount">
@@ -151,7 +150,7 @@ display: flex;
   right: 0;
   width: 47px;
   height: 100%;
-  background: #4579a0;
+  background: #a35d22;
   text-align: center;
   line-height: 1;
 }

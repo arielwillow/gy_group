@@ -179,10 +179,10 @@ display: flex;
 }
 .A {
   min-height: 100%;
-  background-color: rgb(255,250,222);
+  background-color: #85b8cb;
 }
 .sharee {
-  background-color: rgb(255,250,222);
+  background-color: #85b8cb;
   min-height: 400px;
 }
 .qrDiv {
@@ -190,7 +190,7 @@ display: flex;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   width: 40%;
-  background-color: rgb(255,250,222);
+  background-color: #85b8cb;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
@@ -259,7 +259,7 @@ display: flex;
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-color: #fbec71;
+  background-color: #4579a0;
 }
 
 .music-btn {
