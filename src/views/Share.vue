@@ -1,6 +1,6 @@
 /* eslint-disable guard-for-in */
 <template>
-  <div class="A" style="background-color:rgb(255,250,222);">
+  <div class="A" style="background-color:#85b8cb;">
     <div v-if="imgUrl">
       <img :src="imgUrl" class="newImg" />
     </div>
@@ -29,8 +29,9 @@
             </b-col>
           </b-row>
         </div>
-        <p class="footer-txt">制作：重庆大学学生会宣传部，秘书处于卓浩；华晨</p>
-        <p class="footer-txt">部分素材来源：网易哒哒“人生必做的100件事”</p>
+        <p class="footer-txt">图源CR：@高杨_Gyon @高杨的小剧场”</p>
+        <p class="footer-txt">样式参考：网易哒哒“人生必做的100件事”</p>
+        <p class="footer-txt">By：德克馒头与豹子头 2020.07.15</p>
       </div>
     </div>
     <b-button
@@ -83,7 +84,7 @@ export default {
     saveImage() {
       html2canvas(this.$refs.mainDom).then((canvas) => {
         this.imgUrl = canvas.toDataURL('image/png');
-        alert('长按页面即可以下载图片');
+        alert('长按保存图片');
       });
       try {
         this.uploadData();

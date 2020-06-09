@@ -3,7 +3,7 @@
     <div class="top">
       <div class="num-box">
         <div class="select-num">{{ selectedCount }}</div>
-        <div class="select-state">已完成</div>
+        <div class="select-state">已选择</div>
       </div>
     </div>
     <div ref="wheel" class="list-bd" :style="{ animationPlayState }">
@@ -21,7 +21,7 @@
     <div>
       <img class="confirm-text" src="@/assets/img/confirm-text.png">
       <div class="tipsDiv">
-      <p class="tips">如果转过去了没来得及点别担心，一会它们会再转回来哦~</p>
+      <p class="tips">不用担心没来得及点，一会儿会再转回来~</p>
       </div>
     </div>
     <template v-if="selectedCount">
@@ -120,14 +120,14 @@ export default {
   margin: auto;
   font-size: 12px;
   font-style: italic;
-  color: rgb(177,177,177);
+  color: rgb(163, 93, 34);
 }
 .list {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #f0f0f0;
+  background: #d2e0e9;
 }
 .floating-button {
 position: absolute;
@@ -151,7 +151,7 @@ display: flex;
   right: 0;
   width: 47px;
   height: 100%;
-  background: #f5e000;
+  background: #4579a0;
   text-align: center;
   line-height: 1;
 }

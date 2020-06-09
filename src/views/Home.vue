@@ -46,7 +46,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #fbec71;
+  background-color: #85b8cb;
 }
 .msc-div {
   position: absolute;

@@ -39,7 +39,7 @@ export default {
 .login {
   width: 100%;
   height: 100%;
-  background-color: rgb(255,250,222);
+  background-color: #d2e0e9;
 }
 
 .title {
@@ -84,7 +84,7 @@ export default {
   left: 0;
   right: 50px;
   text-align: center;
-  color: #eb5e54;
+  color: #a35d22;
   font-size: 12px;
   display: flex;
   justify-content: center;
