@@ -104,7 +104,7 @@ body {
   content: '';
   position: absolute;
   top: 0;
-  width: 40px;
+  width: 60px;
   height: 100vh;
   background: url(~@/assets/img/side.jpg) repeat-y 0 0 / 100%;
   animation: side 40s linear infinite both;

@@ -46,7 +46,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #85b8cb;
+  background-color: #4579a0;
 }
 .msc-div {
   position: absolute;
@@ -72,7 +72,7 @@ export default {
   left: 59px;
   top: 159px;
   width: auto;
-  height: 164px;
+  height: 200px;
 }
 
 .eye {

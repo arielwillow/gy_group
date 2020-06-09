@@ -81,14 +81,15 @@ export default {
     },
     getConfigByIndex(index) {
       const id = index + 1;
+      const tt = _.random(-12, 12, false);
       let top;
-      if (index % 10 < 5) {
-        top = 50 + (index % 5) * 80;
+      if (index % 12 < 6) {
+        top = 50 + (index % 6) * 80;
       } else {
-        top = 50 + (index % 5) * 80 + 40;
+        top = 50 + (index % 6) * 80 + 40;
       }
-      top += _.random(-10, 10, false);
-      const angle = Math.floor(index / 5) * 36;
+      top += _.random(-12, 12, false);
+      const angle = Math.floor(index / 6) * 30 + tt;
       const radius = (2000 / 2 - top);
       return {
         id, top, angle, radius,
