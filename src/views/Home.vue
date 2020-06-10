@@ -13,11 +13,10 @@
 <script>
 export default {
   data() {
-    // alert('灵感来源：网易哒哒“人生必做的100件事”');
     return {};
   },
   mounted() {
-    alert('点击右上角可以打开背景音乐哦~');
+    return {};
   },
   methods: {
     toLogin() {

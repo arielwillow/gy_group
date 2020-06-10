@@ -16,7 +16,7 @@
           <div class="qrDiv">
             <div class="qrDivLeftTxt">
               <div class="upTxt">扫码//标记</div>
-              <div class="botTxt">你的重大之旅</div>
+              <div class="botTxt">你的乐高记忆</div>
             </div>
             <img src="@/assets/img/qrcode.jpg" class="qrImg"/>
           </div>
@@ -30,7 +30,7 @@
           </b-row>
         </div>
         <p class="footer-txt">图源CR：@高杨_Gyon @高杨的小剧场”</p>
-        <p class="footer-txt">样式参考：网易哒哒“人生必做的100件事”</p>
+        <p class="footer-txt">样式仿照：网易哒哒“人生必做的100件事”</p>
         <p class="footer-txt">By：德克馒头与豹子头 2020.07.15</p>
       </div>
     </div>

@@ -175,7 +175,7 @@ display: flex;
   width: 2000px;
   height: 2000px;
   border-radius: 50%;
-  animation: spin 60s linear infinite;
+  animation: spin 71.5s linear infinite;
   color: #000;
 }
 
