@@ -1,7 +1,7 @@
 <template>
   <div class="home scrolling-side">
     <img class="title" src="@/assets/img/title.png">
-    <img class="eye" src="@/assets/img/bird.png">
+    <img class="slide-btn-outer" src="@/assets/img/bird.png">
     <div class="start" @click="toLogin">
       <img class="text" src="@/assets/img/leaves.png">
       <p class="text2">即刻前往</p>
@@ -24,8 +24,10 @@ export default {
     },
     playMusic() {
       const { bgMusic } = this.$refs;
+      const ele = document.getElementById('music-btn');
       if (bgMusic.paused) {
         bgMusic.play();
+        ele.setAttribute('animation', 'spin 7s linear infinite both');
       }
     },
   },
@@ -87,7 +89,7 @@ export default {
   top: 125px;
   left: 262px;
   width: 66px;
-  height: 63px;
+  height: 66px;
   animation: spin 7s linear infinite both;
 }
 
@@ -133,19 +135,13 @@ export default {
   position: absolute;
   left: 104px;
 }
-
-.slide-btn-inner,
 .slide-btn-outer {
   position: absolute;
   top: 5px;
   width: 24px;
   height: 24px;
-}
-
-.slide-btn-outer {
   animation: breathe 1s linear infinite alternate both;
 }
-
 @keyframes breathe {
   from {
     width: 24px;
