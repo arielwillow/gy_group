@@ -3,7 +3,6 @@
     <audio ref="bgMusic" src="@/assets/audio/bg.mp3" loop="loop"></audio>
     <div class="msc-div" v-if="rout === '/'">
       <div class="music-btn" @click = "playMusic"></div>
-      <p class="mcs-txt">点击播放</p>
     </div>
     <transition name="slide-left">
       <router-view @login="saveName" />
@@ -104,7 +103,7 @@ body {
   content: '';
   position: absolute;
   top: 0;
-  width: 60px;
+  width: 18vw;
   height: 100vh;
   background: url(~@/assets/img/side.jpg) repeat-y 0 0 / 100%;
   animation: side 40s linear infinite both;

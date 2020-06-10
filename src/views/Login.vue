@@ -1,6 +1,6 @@
 <template>
   <div class="login scrolling-side-right">
-    <img class="title" src="@/assets/img/title-3.png">
+    <img class="title" src="@/assets/img/title.png">
     <img class="input-bg" src="@/assets/img/input-bg.png">
     <textarea class="input" v-model="name" v-focus />
     <div class="error-tip" v-if="showError">

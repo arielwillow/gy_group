@@ -1,12 +1,11 @@
 <template>
   <div class="login scrolling-side-right">
-    <img class="title" src="@/assets/img/title-3.png">
+    <img class="title" src="@/assets/img/title.png">
     <img class="input-bg" src="@/assets/img/input_name.png">
     <input type="text" class="input" v-model="name" v-focus />
     <div class="error-tip" v-if="showError">
       <img class="error-img" src="@/assets/img/error.png">请输入你的名字（昵称也行），字数要小于等于4哦~
     </div>
-    <img class="confirm-txt" src="@/assets/img/name_txt.png" />
     <img class="confirm-top" src="@/assets/img/confirm-top.png" @click="onSubmit">
   </div>
 </template>
@@ -57,7 +56,7 @@ export default {
 
 .title {
   position: absolute;
-  top: 16px;
+  top: 13px;
   right: 53px;
   width: 114px;
 }
@@ -74,19 +73,12 @@ export default {
   right: 53px;
   width: 114px;
 }
-.confirm-txt {
-  position: absolute;
-  width: 220px;
-  top: 230px;
-  left: 40px;
-}
 .input-bg {
   position: absolute;
   left: 37px;
-  top: 90px;
+  top: 150px;
   width: 244px;
 }
-
 .error-tip {
   position: absolute;
   top: 195px;

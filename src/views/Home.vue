@@ -2,12 +2,8 @@
   <div class="home scrolling-side">
     <img class="title" src="@/assets/img/title.png">
     <img class="slide-btn-outer" src="@/assets/img/slide-btn-outer.png">
-    <img class="slide-btn" src="@/assets/img/slide-btn.png">
-    <div class="start" @click="toLogin">
-      <img class="text" src="@/assets/img/leaves.png">
-      <p class="text2">即刻前往</p>
-    </div>
-    <img src="@/assets/img/3tian.png" class="footer1"/>
+    <img class="slide-btn" src="@/assets/img/slide-btn.png" @click="toLogin">
+    <img class="words" src="@/assets/img/word.png">
   </div>
 </template>
 
@@ -36,55 +32,34 @@ export default {
 </script>
 
 <style scoped>
-.footer1 {
-  position: absolute;
-  z-index: 11;
-  bottom: 0rem;
-  width: 15rem;
-  right: 3rem;
-  height: auto;
-}
 .home {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #4579a0;
-}
-.msc-div {
-  position: absolute;
-  top: 25px;
-  right: 23px;
-  text-align: center;
+  background-color: #85b8cb;
 }
 .music-btn {
   margin: auto;
-  position: relative;
-  width: 52px;
-  height: 52px;
+  position: absolute;
+  right: 50px;
+  top: 25px;
+  height: 120px;
   background: url(~@/assets/img/music-btn.png) no-repeat center / contain;
 }
-.mcs-txt {
-  position: relative;
-  font-size: 12px;
-  color: black;
-}
-
 .title {
   position: absolute;
-  left: 59px;
-  top: 159px;
-  width: auto;
-  height: 200px;
+  left: 8vw;
+  top: 18vh;
+  width: 79vw;
+  height: auto;
 }
-
-.eye {
+.words {
   position: absolute;
-  top: 148px;
-  left: 277px;
-  width: 50px;
-  height: 30px;
+  right: 8vw;
+  top: 50vh;
+  width: auto;
+  height: 30vh;
 }
-
 .eye-outline {
   position: absolute;
   top: 125px;
@@ -93,70 +68,31 @@ export default {
   height: 66px;
   animation: spin 7s linear infinite both;
 }
-
-.start {
-  position: absolute;
-  right: 60px;
-  top: 361px;
-}
-
-.text {
-  width: auto;
-  height: 80px;
-}
-
-.text2 {
-  position: relative;
-  color: black;
-  right: 0px;
-  text-align: right;
-}
-
-.slide {
-  position: absolute;
-  top: 580px;
-  left: 165px;
-}
-
-.slide-line {
-  position: absolute;
-  top: 5px;
-  width: 104px;
-  height: 24px;
-}
-
-.slide-text {
-  position: absolute;
-  left: 37px;
-  width: 50px;
-  height: 14px;
-}
-
 .slide-btn {
   position: absolute;
-  bottom:50px;
-  right: 50px;
-  width: 30px;
-  height: 30px;
+  bottom: 15vw;
+  right: 15vw;
+  width: 10vw;
+  height: 10vw;
 }
 .slide-btn-outer {
   position: absolute;
-  bottom: 50px;
-  right:50px;
-  width: 30px;
-  height: 30px;
+  bottom: 15vw;
+  right: 15vw;
+  width: 10vw;
+  height: 10vw;
   animation: breathe 1s linear infinite alternate both;
 }
 @keyframes breathe {
   from {
-    width: 30px;
-    height: 30px;
+    width: 10vw;
+    height: 10vw;
   }
   to {
-    width: 40px;
-    height: 40px;
-    margin-left: -5px;
-    margin-top: -5px;
+    width: 15vw;
+    height: 15vw;
+    bottom: 12.5vw;
+    right: 12.5vw;
   }
 }
 </style>

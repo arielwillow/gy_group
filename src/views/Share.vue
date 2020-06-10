@@ -10,7 +10,7 @@
         <img src="@/assets/img/name.png" class="tianImg"/>
         <p :class="nameClass">{{nameA}}</p>
       </div>
-        <img src="@/assets/img/title-3.png" class="headImg"/>
+        <img src="@/assets/img/title.png" class="headImg"/>
         <div class="barA">
           <div class="finishedA">已完成 {{selectedCount}} 件</div>
           <div class="qrDiv">
