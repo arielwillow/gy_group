@@ -1,7 +1,8 @@
 <template>
   <div class="home scrolling-side">
     <img class="title" src="@/assets/img/title.png">
-    <img class="slide-btn-outer" src="@/assets/img/bird.png">
+    <img class="slide-btn-outer" src="@/assets/img/slide-btn-outer.png">
+    <img class="slide-btn" src="@/assets/img/slide-btn.png">
     <div class="start" @click="toLogin">
       <img class="text" src="@/assets/img/leaves.png">
       <p class="text2">即刻前往</p>
@@ -133,25 +134,29 @@ export default {
 
 .slide-btn {
   position: absolute;
-  left: 104px;
+  bottom:50px;
+  right: 50px;
+  width: 30px;
+  height: 30px;
 }
 .slide-btn-outer {
   position: absolute;
-  top: 5px;
-  width: 24px;
-  height: 24px;
+  bottom: 50px;
+  right:50px;
+  width: 30px;
+  height: 30px;
   animation: breathe 1s linear infinite alternate both;
 }
 @keyframes breathe {
   from {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
   }
   to {
-    width: 62px;
-    height: 62px;
-    margin-left: -19px;
-    margin-top: -19px;
+    width: 40px;
+    height: 40px;
+    margin-left: -5px;
+    margin-top: -5px;
   }
 }
 </style>

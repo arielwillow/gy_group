@@ -20,7 +20,8 @@
     </div>
     <div>
       <div class="tipsDiv">
-      <p class="tips">不用担心没来得及点，还会转回来哒~</p>
+      <p class="tips">不用担心错过，还会转回来哒~</p>
+      <p class="tips">每71.5秒就会转一圈哦~</p>
       </div>
     </div>
     <template v-if="selectedCount">

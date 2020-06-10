@@ -1,9 +1,9 @@
 <template>
   <div class="app">
-    <audio ref="bgMusic" src="@/assets/audio/bg.mp3"></audio>
+    <audio ref="bgMusic" src="@/assets/audio/bg.mp3" loop="loop"></audio>
     <div class="msc-div" v-if="rout === '/'">
       <div class="music-btn" @click = "playMusic"></div>
-      <p class="mcs-txt">点击播放↑背景音乐</p>
+      <p class="mcs-txt">点击播放</p>
     </div>
     <transition name="slide-left">
       <router-view @login="saveName" />
