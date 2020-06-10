@@ -34,20 +34,11 @@
         <p class="footer-txt">By：德克馒头与豹子头 2020.07.15</p>
       </div>
     </div>
-    <b-button
-      v-if="!imgUrl"
-      variant="success"
-      class="floating-button"
-      @click="saveImage">
-    点击这里保存截图
-    </b-button>
   </div>
 </template>
 
 <script>
 import items from '@/mock/items';
-import html2canvas from 'html2canvas';
-import yesapi from '../lib/yes3';
 
 export default {
   data() {
@@ -80,20 +71,6 @@ export default {
   methods: {
     toLogin() {
       this.$router.replace('/login');
-    },
-    saveImage() {
-      html2canvas(this.$refs.mainDom).then((canvas) => {
-        this.imgUrl = canvas.toDataURL('image/png');
-        alert('长按保存图片');
-      });
-      try {
-        this.uploadData();
-      // eslint-disable-next-line no-empty
-      } catch {}
-    },
-    async uploadData() {
-      await yesapi.table.create('cqu_50things_select', { sele: this.selectedItems.toString(), s_name: this.$route.query.name });
-      await yesapi.table.create('cqu_50things_comment', { free: localStorage.getItem('free') });
     },
   },
 };
