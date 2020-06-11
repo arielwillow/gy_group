@@ -6,19 +6,13 @@
     </div>
     <div class="sharee" ref="mainDom">
       <div v-if="!imgUrl">
-      <div class="name">
-        <img src="@/assets/img/name.png" class="tianImg"/>
+      <div class="name" :style="{ backgroundImage: `url(/things/${imgId}.png)` }">
         <p class="nameClass">{{nameA}}</p>
       </div>
         <img src="@/assets/img/title.png" class="headImg"/>
         <div class="barA">
           <div class="finishedA">已完成 {{selectedCount}} 件</div>
-          <div class="qrDiv">
-            <div class="qrDivLeftTxt">
-              <div class="upTxt">{{wishA}}</div>
-            </div>
-            <img src="@/assets/img/qrcode.jpg" class="qrImg"/>
-          </div>
+          <div class="qrDiv">{{wishA}}</div>          
         </div>
         <div class="imgs">
           <b-row>
@@ -38,17 +32,20 @@
 
 <script>
 import items from '@/mock/items';
+import html2canvas from 'html2canvas';
 
 export default {
   data() {
     const selectItems = this.$route.query.sele.split(',');
     const { name, wish } = this.$route.query;
+    const itemlen = selectItems.length;
+    const ind = _.random(0, itemlen-1, false)
     return {
       selectedItems: selectItems,
-      selectedCount: selectItems.length,
-      imgUrl: null,
+      selectedCount: itemlen,
       nameA: name,
       wishA: wish,
+      imgId: selectItems[ind]
     };
   },
   computed: {
@@ -67,6 +64,12 @@ export default {
     toLogin() {
       this.$router.replace('/login');
     },
+    saveImage() {
+      html2canvas(this.$refs.mainDom).then((canvas) => {
+        this.imgUrl = canvas.toDataURL('image/png');
+        alert('长按')
+      });
+    },
   },
 };
 </script>
@@ -75,8 +78,13 @@ export default {
 
 .name {
   position: absolute;
-  top: 50px;
-  left: 10px;
+  top: 15vh;
+  left: 3vw;
+  width: 13vw;
+  height: 13vw;
+  border: 1vw solid #a35d22;
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px 0px black;
 }
 .nameClass {
   position: relative;
@@ -90,35 +98,22 @@ export default {
   justify-content: center;
   flex-direction: column;
 }
-.tianImg {
-  position: absolute;
-  width: 36px;
-}
 .footer-txt {
   font-size: 10px;
   color: rgba(0,0,0,0.6);
   text-align: center;
   margin-bottom: 0px;
 }
-.newImg {
-  width: 100%;
-}
-.floating-button {
-position: absolute;
-right: 16px;
-bottom: 150px;
-z-index: 1500;
-height: 100px;
-overflow: hidden;
-display: flex;
-}
 .imgItem {
   width: 18.7vw;
+}
+.newImg {
+  width: 100%;
 }
 .imgI {
   width: 18.7vw;
   height: 18.7vw;
-  border: 1vw solid white;
+  border: 1vw solid #d2e0e9;
   border-radius: 50%;
   box-shadow: 0px 1px 3px 0px black;
 }
@@ -140,61 +135,40 @@ display: flex;
   min-height: 400px;
 }
 .qrDiv {
-  height:58px;
+  height: 15.5vw;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   width: 40%;
-  background-color: #85b8cb;
+  background-color: #4579a0;
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-}
-
-.qrImg {
-  line-height: 55px;
-  height: 50px;
-  width: 50px;
-  vertical-align: center;
-  margin-top: 3px;
-}
-
-.qrDivLeftTxt {
   font-size: 12px;
-  height: 60px;
-  line-height: 20px;
-  display:flex;
+  height: 16vw;
+  line-height: 5.3vw;
   justify-content: center;
-  flex-direction: column;
   word-wrap: break-word;
-}
-.upTxt {
   margin-top: -3px;
-  font-weight: bold;
 }
-
 .barA {
   position: relative;
   margin-top: -4px;
-  min-height: 60px;
   display:flex;
   flex-direction: row;
 }
-
 .finishedA {
   background-color: black;
-  padding: 10px;
+  padding: 2.7vw;
   color:white;
   font-size: 35px;
   width: 60%;
   text-align: center;
   font-weight: bolder;
-  height: 58px;
-  line-height: 35px;
+  height: 16vw;
+  line-height: 9.3vw;
 }
 .headImg{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-left: 40px;
+  margin-top: 5.3vw;
+  margin-bottom: 5.3vw;
+  padding-left: 10.5vw;
   width: 100%;
 }
 </style>

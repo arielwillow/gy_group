@@ -45,28 +45,21 @@ export default {
 <style lang="scss">
 .msc-div {
   position: absolute;
-  top: 25px;
-  right: 23px;
+  top: 6vw;
+  right: 6vw;
+  width: 10vh;
+  height: 10vh;
   text-align: center;
-  z-index: 100;
 }
 .music-btn {
   margin: auto;
   position: relative;
-  width: 52px;
-  height: 52px;
   background: url(~@/assets/img/music-btn.png) no-repeat center / contain;
-}
-.mcs-txt {
-  position: relative;
-  font-size: 12px;
-  color: black;
 }
 body {
   margin: 0;
   font-family: 'Heiti SC', 'Helvetica Neue', Helvetica, sans-serif;
 }
-
 .app {
   width: 100%;
   height: 100vh;

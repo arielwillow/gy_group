@@ -21,10 +21,8 @@ export default {
     },
     playMusic() {
       const { bgMusic } = this.$refs;
-      const ele = document.getElementById('music-btn');
       if (bgMusic.paused) {
         bgMusic.play();
-        ele.setAttribute('animation', 'spin 7s linear infinite both');
       }
     },
   },
@@ -37,14 +35,6 @@ export default {
   width: 100%;
   height: 100%;
   background-color: #85b8cb;
-}
-.music-btn {
-  margin: auto;
-  position: absolute;
-  right: 50px;
-  top: 25px;
-  height: 120px;
-  background: url(~@/assets/img/music-btn.png) no-repeat center / contain;
 }
 .title {
   position: absolute;

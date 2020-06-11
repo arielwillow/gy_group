@@ -2,10 +2,7 @@
   <div class="login scrolling-side-right">
     <img class="title" src="@/assets/img/title.png">
     <img class="input-bg" src="@/assets/img/input-bg.png">
-    <input type="text" class="input" v-model="wish" v-focus />
-    <div class="error-tip" v-if="showError">
-      <img class="error-img" src="@/assets/img/error.png">写下生日祝福
-    </div>
+    <input type="text" class="input" placeholder="如不填写，则使用默认祝福～" value="祝高杨24岁生日快乐！" v-model="wish" v-focus />
     <img class="confirm-txt" src="@/assets/img/free_txt.png" />
     <img class="confirm-top" src="@/assets/img/finish.png" @click="onSubmit">
   </div>
@@ -22,15 +19,9 @@ export default {
   methods: {
     onSubmit() {
       const { sele, name } = this.$route.query;
-      if (this.wish) {
-        this.$emit('login', this.wish);
-        localStorage.setItem('free', this.wish);
-        this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${this.wish}`);
-      } else {
-        this.$emit('login', '祝高杨24岁生日快乐！');
-        localStorage.setItem('free', '祝高杨24岁生日快乐！');
-        this.$router.replace(`/share?sele=${sele}&name=${name}&wish=祝高杨24岁生日快乐！`);
-      }
+      this.$emit('login', this.wish);
+      localStorage.setItem('free', this.wish);
+      this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${this.wish}`);
     },
   },
 };
@@ -42,7 +33,6 @@ export default {
   height: 100%;
   background-color: #d2e0e9;
 }
-
 .title {
   position: absolute;
   top: 16px;
@@ -61,8 +51,6 @@ export default {
   top: 90px;
   width: 244px;
 }
-
-
 .input {
   position: absolute;
   left: 41px;
@@ -78,7 +66,6 @@ export default {
   line-height: 23px;
   text-align: center;
 }
-
 .error-tip {
   position: absolute;
   top: 275px;
@@ -91,7 +78,6 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 .error-img {
   width: 12px;
   height: 12px;
@@ -99,7 +85,6 @@ export default {
   margin-right: 3px;
   animation: shine .5s linear infinite alternate both;
 }
-
 .confirm-top {
   position: absolute;
   top: 563px;

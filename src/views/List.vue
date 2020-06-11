@@ -71,10 +71,6 @@ export default {
     },
   },
   methods: {
-    saveImage() {
-      // console.log(this.$refs.wheel);
-      // this.$refs.wheel.class
-    },
     goToShare() {
       const { name } = this.$route.query;
       const selection = this.selectedItems.toString();
