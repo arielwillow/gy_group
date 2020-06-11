@@ -12,7 +12,7 @@
         <img src="@/assets/img/title.png" class="headImg"/>
         <div class="barA">
           <div class="finishedA">已完成 {{selectedCount}} 件</div>
-          <div class="qrDiv">{{wishA}}</div>          
+          <div class="qrDiv">{{wishA}}</div>
         </div>
         <div class="imgs">
           <b-row>
@@ -33,19 +33,20 @@
 <script>
 import items from '@/mock/items';
 import html2canvas from 'html2canvas';
+import _ from 'lodash';
 
 export default {
   data() {
     const selectItems = this.$route.query.sele.split(',');
     const { name, wish } = this.$route.query;
     const itemlen = selectItems.length;
-    const ind = _.random(0, itemlen-1, false)
+    const ind = _.random(0, itemlen - 1, false);
     return {
       selectedItems: selectItems,
       selectedCount: itemlen,
       nameA: name,
       wishA: wish,
-      imgId: selectItems[ind]
+      imgId: selectItems[ind],
     };
   },
   computed: {
@@ -67,7 +68,7 @@ export default {
     saveImage() {
       html2canvas(this.$refs.mainDom).then((canvas) => {
         this.imgUrl = canvas.toDataURL('image/png');
-        alert('长按')
+        alert('长按');
       });
     },
   },

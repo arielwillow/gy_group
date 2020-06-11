@@ -2,7 +2,9 @@
   <div class="login scrolling-side-right">
     <img class="title" src="@/assets/img/title.png">
     <img class="input-bg" src="@/assets/img/input-bg.png">
-    <input type="text" class="input" placeholder="如不填写，则使用默认祝福～" value="祝高杨24岁生日快乐！" v-model="wish" v-focus />
+    <input type="text" class="input"
+    placeholder="如不填写，则使用默认祝福～"
+    value="祝高杨24岁生日快乐！" v-model="wish" v-focus />
     <img class="confirm-txt" src="@/assets/img/free_txt.png" />
     <img class="confirm-top" src="@/assets/img/finish.png" @click="onSubmit">
   </div>
