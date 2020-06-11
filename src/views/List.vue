@@ -84,14 +84,10 @@ export default {
       const id = index + 1;
       const tt = _.random(-12, 12, false);
       let top;
-      if (index % 12 < 6) {
-        top = 50 + (index % 6) * 80;
-      } else {
-        top = 50 + (index % 6) * 80 + 40;
-      }
+      top = 50 + (index % 6) * 80;
       top += _.random(-12, 12, false);
       const angle = Math.floor(index / 6) * 30 + tt;
-      const radius = (2000 / 2 - top);
+      const radius = window.innerHeight * 1.25 - top;
       return {
         id, top, angle, radius,
       };
@@ -112,7 +108,7 @@ export default {
 .tipsDiv {
   text-align: center;
   position: absolute;
-  bottom: 80px;
+  bottom: 11vh;
   left: 0px;
   right: 0px;
 }
@@ -130,33 +126,22 @@ export default {
   overflow: hidden;
   background: #d2e0e9;
 }
-.floating-button {
-position: absolute;
-right: 16px;
-bottom: 150px;
-z-index: 1500;
-overflow: hidden;
-display: flex;
-}
-
 .top {
   position: relative;
-  height: 42px;
+  height: 5.5vh;
   background: url(~@/assets/img/select-top.png) no-repeat 0 0 / cover;
   box-shadow: 0 1px rgba(0, 0, 0, .3);
 }
-
 .num-box {
   position: absolute;
   top: 0;
   right: 0;
-  width: 47px;
+  width: 15vw;
   height: 100%;
   background: #a35d22;
   text-align: center;
   line-height: 1;
 }
-
 .select-num {
   font-weight: 700;
   font-style: italic;
@@ -164,49 +149,28 @@ display: flex;
   color: #000;
   margin-top: 4px;
 }
-
 .select-state {
   font-size: 12px;
 }
-
 .list-bd {
   position: absolute;
-  top: 97px;
-  left: calc(50% - 2000px / 2);
-  width: 2000px;
-  height: 2000px;
+  top: 10vh;
+  left: calc(50% - 125vh);
+  width: 250vh;
+  height: 250vh;
   border-radius: 50%;
   animation: spin 71.5s linear infinite;
   color: #000;
 }
-
 .list-item {
   position: absolute;
   top: 0;
   left: 50%;
 }
-
-.confirm-text {
-  position: absolute;
-  bottom: 100px;
-  left: calc(50% - 130px / 2);
-  width: 130px;
-  height: 12px;
-}
-
-
 .btn-text {
   position: absolute;
-  bottom: 20px;
-  left: calc(50% - 128px / 2);
-  width: 128px;
-}
-
-.btn-bg {
-  position: absolute;
-  top: 623px;
-  left: calc(50% - 130px / 2 + 3px);;
-  width: 130px;
-  height: 35px;
+  bottom: 5vh;
+  left: 32vw;
+  width: 36vw;
 }
 </style>

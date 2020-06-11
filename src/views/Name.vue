@@ -35,9 +35,9 @@ export default {
 <style scoped>
 .input {
   position: absolute;
-  left: 41px;
-  top: 149px;
-  width: 239px;
+  left: 20vw;
+  top: 22vh;
+  width: 60vw;
   outline: 0;
   border: 0;
   padding: 0;
@@ -47,37 +47,22 @@ export default {
   line-height: 23px;
   text-align: center;
 }
-
 .login {
   width: 100vw;
   height: 100%;
   background-color: #d2e0e9;
 }
-
 .title {
   position: absolute;
   top: 13px;
   right: 53px;
   width: 114px;
 }
-
 .input-bg {
   position: absolute;
-  left: 37px;
-  top: 209px;
-  width: 350px;
-}
-.title {
-  position: absolute;
-  top: 16px;
-  right: 53px;
-  width: 114px;
-}
-.input-bg {
-  position: absolute;
-  left: 37px;
-  top: 150px;
-  width: 244px;
+  left: 15vw;
+  top: 20vh;
+  width: 70vw;
 }
 .error-tip {
   position: absolute;
@@ -91,7 +76,6 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 .error-img {
   width: 12px;
   height: 12px;
@@ -99,15 +83,6 @@ export default {
   margin-right: 3px;
   animation: shine .5s linear infinite alternate both;
 }
-
-.confirm-bg {
-  position: absolute;
-  top: 466px;
-  left: 101px;
-  width: 130px;
-  height: 35px;
-}
-
 .confirm-top {
   position: absolute;
   top: 513px;
@@ -115,8 +90,6 @@ export default {
   width: 105px;
   transition: all .15s linear;
 }
-
-
 @keyframes shine {
   0% {
     opacity: 1;
