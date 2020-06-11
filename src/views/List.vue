@@ -82,10 +82,10 @@ export default {
     },
     getConfigByIndex(index) {
       const id = index + 1;
-      const tt = _.random(-12, 12, false);
+      const tt = _.random(-10, 10, false);
       let top;
       top = 50 + (index % 6) * 80;
-      top += _.random(-12, 12, false);
+      top += _.random(-9, 9, false);
       const angle = Math.floor(index / 6) * 30 + tt;
       const radius = window.innerHeight * 1.25 - top;
       return {
@@ -108,7 +108,7 @@ export default {
 .tipsDiv {
   text-align: center;
   position: absolute;
-  bottom: 11vh;
+  bottom: 12vh;
   left: 0px;
   right: 0px;
 }

@@ -36,7 +36,7 @@ export default {
 .input {
   position: absolute;
   left: 20vw;
-  top: 22vh;
+  top: 25vh;
   width: 60vw;
   outline: 0;
   border: 0;

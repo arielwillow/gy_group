@@ -8,15 +8,14 @@
       <div v-if="!imgUrl">
       <div class="name">
         <img src="@/assets/img/name.png" class="tianImg"/>
-        <p :class="nameClass">{{nameA}}</p>
+        <p class="nameClass">{{nameA}}</p>
       </div>
         <img src="@/assets/img/title.png" class="headImg"/>
         <div class="barA">
           <div class="finishedA">已完成 {{selectedCount}} 件</div>
           <div class="qrDiv">
             <div class="qrDivLeftTxt">
-              <div class="upTxt">扫码//标记</div>
-              <div class="botTxt">你的乐高记忆</div>
+              <div class="upTxt">{{wishA}}</div>
             </div>
             <img src="@/assets/img/qrcode.jpg" class="qrImg"/>
           </div>
@@ -43,17 +42,13 @@ import items from '@/mock/items';
 export default {
   data() {
     const selectItems = this.$route.query.sele.split(',');
-    const { name } = this.$route.query;
-    let namec = '';
-    if (name.length === 3) namec = 'name_txt';
-    else if (name.length === 2) namec = 'name_txt_2';
-    else if (name.length === 4) namec = 'name_txt_4';
+    const { name, wish } = this.$route.query;
     return {
       selectedItems: selectItems,
       selectedCount: selectItems.length,
       imgUrl: null,
       nameA: name,
-      nameClass: namec,
+      wishA: wish,
     };
   },
   computed: {
@@ -83,7 +78,7 @@ export default {
   top: 50px;
   left: 10px;
 }
-.name_txt {
+.nameClass {
   position: relative;
   width: 30px;
   margin-top: 3px;
@@ -91,38 +86,20 @@ export default {
   font-size: 18px;
   z-index: 100;
   font-weight: bold;
-}
-.name_txt_2 {
-  position: relative;
-  width: 30px;
-  margin-top: 17px;
-  margin-left: 10px;
-  font-size: 18px;
-  z-index: 100;
-  font-weight: bold;
-}
-.name_txt_4 {
-  position: relative;
-  width: 30px;
-  margin-top: 1px;
-  margin-left: 12px;
-  line-height: 21px;
-  font-size: 16px;
-  z-index: 100;
-  font-weight: bold;
+  word-wrap: break-word;
+  justify-content: center;
+  flex-direction: column;
 }
 .tianImg {
   position: absolute;
   width: 36px;
 }
-
 .footer-txt {
   font-size: 10px;
   color: rgba(0,0,0,0.6);
   text-align: center;
   margin-bottom: 0px;
 }
-
 .newImg {
   width: 100%;
 }
@@ -136,12 +113,12 @@ overflow: hidden;
 display: flex;
 }
 .imgItem {
-  width: 70px;
+  width: 18.7vw;
 }
 .imgI {
-  width: 70px;
-  height: 70px;
-  border: 4px solid white;
+  width: 18.7vw;
+  height: 18.7vw;
+  border: 1vw solid white;
   border-radius: 50%;
   box-shadow: 0px 1px 3px 0px black;
 }
@@ -188,6 +165,7 @@ display: flex;
   display:flex;
   justify-content: center;
   flex-direction: column;
+  word-wrap: break-word;
 }
 .upTxt {
   margin-top: -3px;
@@ -218,29 +196,5 @@ display: flex;
   margin-bottom: 20px;
   padding-left: 40px;
   width: 100%;
-}
-.line_02{
-  /* margin-top: ; */
-    height: 1px;
-    border-top: 1px solid #ddd;
-    text-align: center;
-}
-.line_02 span{
-    position: relative;
-    top: -15px;
-    background: #fff;
-    /* padding: 0 20px; */
-}
-@keyframes breathe {
-  from {
-    width: 24px;
-    height: 24px;
-  }
-  to {
-    width: 62px;
-    height: 62px;
-    margin-left: -19px;
-    margin-top: -19px;
-  }
 }
 </style>

@@ -2,9 +2,9 @@
   <div class="login scrolling-side-right">
     <img class="title" src="@/assets/img/title.png">
     <img class="input-bg" src="@/assets/img/input-bg.png">
-    <textarea class="input" v-model="name" v-focus />
+    <input type="text" class="input" v-model="wish" v-focus />
     <div class="error-tip" v-if="showError">
-      <img class="error-img" src="@/assets/img/error.png">请输入你的自定义list
+      <img class="error-img" src="@/assets/img/error.png">写下生日祝福
     </div>
     <img class="confirm-txt" src="@/assets/img/free_txt.png" />
     <img class="confirm-top" src="@/assets/img/finish.png" @click="onSubmit">
@@ -22,13 +22,14 @@ export default {
   methods: {
     onSubmit() {
       const { sele, name } = this.$route.query;
-      if (this.name) {
-        this.$emit('login', this.name);
-        this.showError = false;
-        localStorage.setItem('free', this.name);
-        this.$router.replace(`/share?sele=${sele}&name=${name}`);
+      if (this.wish) {
+        this.$emit('login', this.wish);
+        localStorage.setItem('free', this.wish);
+        this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${this.wish}`);
       } else {
-        this.showError = true;
+        this.$emit('login', '祝高杨24岁生日快乐！');
+        localStorage.setItem('free', '祝高杨24岁生日快乐！');
+        this.$router.replace(`/share?sele=${sele}&name=${name}&wish=祝高杨24岁生日快乐！`);
       }
     },
   },
