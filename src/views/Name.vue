@@ -4,7 +4,7 @@
     <img class="input-bg" src="@/assets/img/input_name.png">
     <input type="text" class="input" v-model="name" v-focus />
     <div class="error-tip" v-if="showError">
-      <img class="error-img" src="@/assets/img/error.png">请输入你的名字（昵称也行），字数要小于等于4哦~
+      <img class="error-img" src="@/assets/img/error.png">请输入你的名字（昵称也行），字数要小于等于10哦~
     </div>
     <img class="confirm-top" src="@/assets/img/confirm-top.png" @click="onSubmit">
   </div>
@@ -35,16 +35,16 @@ export default {
 <style scoped>
 .input {
   position: absolute;
-  left: 20vw;
-  top: 25vh;
-  width: 60vw;
+  left: 10vw;
+  width: 62vw;
+  top: calc(24% + 14vw);
   outline: 0;
   border: 0;
   padding: 0;
   color: #4b4a4a;
   background: transparent;
   font-size: 18px;
-  line-height: 23px;
+  line-height: 25px;
   text-align: center;
 }
 .login {
@@ -54,21 +54,22 @@ export default {
 }
 .title {
   position: absolute;
-  top: 13px;
-  right: 53px;
-  width: 114px;
+  top: 1vh;
+  right: 17vw;
+  width: 28vw;
 }
 .input-bg {
   position: absolute;
-  left: 15vw;
-  top: 20vh;
-  width: 70vw;
+  left: 10vw;
+  top: 24vh;
+  width: 62vw;
 }
 .error-tip {
   position: absolute;
-  top: 195px;
+  top: calc(24% + 26vw);
   left: 0;
-  right: 50px;
+  left: 10vw;
+  width: 62vw;
   text-align: center;
   color: #a35d22;
   font-size: 12px;
@@ -85,9 +86,9 @@ export default {
 }
 .confirm-top {
   position: absolute;
-  top: 513px;
-  left: 100px;
-  width: 105px;
+  bottom: 30vh;
+  left: 26vw;
+  width: 30vw;
   transition: all .15s linear;
 }
 @keyframes shine {

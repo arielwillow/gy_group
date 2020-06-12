@@ -45,15 +45,15 @@ export default {
 <style lang="scss">
 .msc-div {
   position: absolute;
-  top: 6vw;
-  right: 6vw;
-  width: 10vh;
-  height: 10vh;
+  top: 6.7vw;
+  right: 0vw;
   text-align: center;
+  z-index: 100;
 }
 .music-btn {
-  margin: auto;
   position: relative;
+  width: 12vh;
+  height: 12vh;
   background: url(~@/assets/img/music-btn.png) no-repeat center / contain;
 }
 body {

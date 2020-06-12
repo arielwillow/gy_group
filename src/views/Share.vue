@@ -6,13 +6,16 @@
     </div>
     <div class="sharee" ref="mainDom">
       <div v-if="!imgUrl">
-      <div class="name" :style="{ backgroundImage: `url(/things/${imgId}.png)` }">
+      <div class="name" style="vertical-align: middle;display: table-cell;">
+        <img :src="imgsrc" class="nameImg"/>
         <p class="nameClass">{{nameA}}</p>
       </div>
         <img src="@/assets/img/title.png" class="headImg"/>
         <div class="barA">
           <div class="finishedA">已完成 {{selectedCount}} 件</div>
-          <div class="qrDiv">{{wishA}}</div>
+          <div class="qrDiv" style="vertical-align: middle;display: table-cell;">
+            <p class="wishtxt">{{wishA}}</p>
+          </div>
         </div>
         <div class="imgs">
           <b-row>
@@ -41,12 +44,13 @@ export default {
     const { name, wish } = this.$route.query;
     const itemlen = selectItems.length;
     const ind = _.random(0, itemlen - 1, false);
+    const imgId = selectItems[ind];
     return {
       selectedItems: selectItems,
       selectedCount: itemlen,
       nameA: name,
       wishA: wish,
-      imgId: selectItems[ind],
+      imgsrc: `/things/${imgId}.png`,
     };
   },
   computed: {
@@ -76,20 +80,38 @@ export default {
 </script>
 
 <style scoped>
-
-.name {
+.A {
+  min-height: 100%;
+  background-color: #85b8cb;
+}
+.sharee {
+  background-color: #85b8cb;
+  min-height: 400px;
+}
+.headImg{
+  margin-top: 5.3vw;
+  margin-bottom: 5.3vw;
+  margin-right: 2vw;
+  padding-left: 24vw;
+  width: 100%;
+}
+.name{
   position: absolute;
-  top: 15vh;
-  left: 3vw;
-  width: 13vw;
-  height: 13vw;
-  border: 1vw solid #a35d22;
+  top: 3vh;
+  left: 5vw;
+  height: 43vw;
+  width: 24vw;
+}
+.nameImg {
+  width: 18vw;
+  height: 18vw;
+  border: 0.5vw solid #a35d22;
   border-radius: 50%;
   box-shadow: 0px 1px 3px 0px black;
+  z-index: 100;
 }
 .nameClass {
-  position: relative;
-  width: 30px;
+  width: 18vw;
   margin-top: 3px;
   margin-left: 10px;
   font-size: 18px;
@@ -97,7 +119,7 @@ export default {
   font-weight: bold;
   word-wrap: break-word;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 .footer-txt {
   font-size: 10px;
@@ -127,16 +149,7 @@ export default {
 .imgs {
   padding: 10px;
 }
-.A {
-  min-height: 100%;
-  background-color: #85b8cb;
-}
-.sharee {
-  background-color: #85b8cb;
-  min-height: 400px;
-}
 .qrDiv {
-  height: 15.5vw;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   width: 40%;
@@ -147,7 +160,9 @@ export default {
   line-height: 5.3vw;
   justify-content: center;
   word-wrap: break-word;
-  margin-top: -3px;
+}
+.wishtxt{
+  justify-content: center;
 }
 .barA {
   position: relative;
@@ -165,11 +180,5 @@ export default {
   font-weight: bolder;
   height: 16vw;
   line-height: 9.3vw;
-}
-.headImg{
-  margin-top: 5.3vw;
-  margin-bottom: 5.3vw;
-  padding-left: 10.5vw;
-  width: 100%;
 }
 </style>

@@ -80,10 +80,11 @@ export default {
       const id = index + 1;
       const tt = _.random(-10, 10, false);
       let top;
-      top = 50 + (index % 6) * 80;
-      top += _.random(-9, 9, false);
+      top = window.innerHeight * 0.05 + (index % 6) * 0.1 * window.innerHeight;
+      top += _.random(-0.03, 0.03, true) * window.innerHeight;
+      top = Math.max(top, 0.05);
       const angle = Math.floor(index / 6) * 30 + tt;
-      const radius = window.innerHeight * 1.25 - top;
+      const radius = window.innerHeight * 1.35 - top;
       return {
         id, top, angle, radius,
       };
@@ -104,19 +105,20 @@ export default {
 .tipsDiv {
   text-align: center;
   position: absolute;
-  bottom: 12vh;
+  bottom: 17vh;
   left: 0px;
   right: 0px;
 }
 .tips {
   text-align: center;
   margin: auto;
-  font-size: 12px;
+  font-size: 11px;
   font-style: italic;
   color: rgb(163, 93, 34);
 }
 .list {
-  position: relative;
+  position: absolute;
+  top:6vh;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -132,7 +134,6 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  width: 15vw;
   height: 100%;
   background: #a35d22;
   text-align: center;
@@ -141,19 +142,19 @@ export default {
 .select-num {
   font-weight: 700;
   font-style: italic;
-  font-size: 23px;
+  font-size: 2.8vh;
   color: #000;
-  margin-top: 4px;
+  margin-top: 0.49vh;
 }
 .select-state {
-  font-size: 12px;
+  font-size: 1.5vh;
 }
 .list-bd {
   position: absolute;
-  top: 10vh;
-  left: calc(50% - 125vh);
-  width: 250vh;
-  height: 250vh;
+  top: 6vh;
+  left: calc(50% - 135vh);
+  width: 270vh;
+  height: 270vh;
   border-radius: 50%;
   animation: spin 71.5s linear infinite;
   color: #000;
@@ -162,11 +163,12 @@ export default {
   position: absolute;
   top: 0;
   left: 50%;
+  font-size: 11px;
 }
 .btn-text {
   position: absolute;
-  bottom: 5vh;
-  left: 32vw;
-  width: 36vw;
+  bottom: 10vh;
+  left: 35vw;
+  width: 30vw;
 }
 </style>

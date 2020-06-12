@@ -38,9 +38,9 @@ export default {
 }
 .title {
   position: absolute;
-  left: 8vw;
-  top: 18vh;
-  width: 79vw;
+  left: 18vw;
+  top: 17vh;
+  width: 68vw;
   height: auto;
 }
 .words {

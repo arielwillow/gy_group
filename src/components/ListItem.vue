@@ -35,7 +35,6 @@ export default {
       required: true,
     },
   },
-  
   data() {
     return {
       selected: false,
@@ -56,10 +55,10 @@ export default {
 <style scoped>
 .img {
   position: absolute;
-  top: calc(50% - 35px);
-  left: calc(50% - 35px);
-  width: 70px;
-  height: 70px;
+  top: calc(50% - 8vw);
+  left: calc(50% - 8vw);
+  width: 16vw;
+  height: 16vw;
   background-size: 100%;
   border-radius: 50%;
   box-shadow: -3px 3px #a8a8a8;

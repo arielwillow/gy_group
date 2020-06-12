@@ -21,9 +21,15 @@ export default {
   methods: {
     onSubmit() {
       const { sele, name } = this.$route.query;
-      this.$emit('login', this.wish);
-      localStorage.setItem('free', this.wish);
-      this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${this.wish}`);
+      if (this.name) {
+        this.$emit('login', this.wish);
+        localStorage.setItem('free', this.wish);
+        this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${this.wish}`);
+      } else {
+        const w = '祝高杨24岁生日快乐！';
+        this.$emit('login', w);
+        this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${w}`);
+      }
     },
   },
 };
