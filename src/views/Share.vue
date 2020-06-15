@@ -7,7 +7,7 @@
     <div class="sharee" ref="mainDom">
       <div v-if="!imgUrl">
       <div class="name" style="vertical-align: middle;display: table-cell;">
-        <img :src="imgsrc" class="nameImg"/>
+        <img src="@/assets/img/avatar.png" class="nameImg"/>
         <div class="name-bottom">
           <p class="nameClass">{{nameA}}</p>
         </div>
@@ -38,21 +38,17 @@
 <script>
 import items from '@/mock/items';
 import html2canvas from 'html2canvas';
-import _ from 'lodash';
 
 export default {
   data() {
     const selectItems = this.$route.query.sele.split(',');
     const { name, wish } = this.$route.query;
     const itemlen = selectItems.length;
-    const ind = _.random(0, itemlen - 1, false);
-    const imgId = selectItems[ind];
     return {
       selectedItems: selectItems,
       selectedCount: itemlen,
       nameA: name,
       wishA: wish,
-      imgsrc: `/things/${imgId}.png`,
     };
   },
   computed: {
@@ -74,7 +70,7 @@ export default {
     saveImage() {
       html2canvas(this.$refs.mainDom).then((canvas) => {
         this.imgUrl = canvas.toDataURL('image/png');
-        alert('长按');
+        // alert('长按');
       });
     },
   },

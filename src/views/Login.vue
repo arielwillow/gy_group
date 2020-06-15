@@ -1,11 +1,10 @@
 <template>
   <div class="login scrolling-side-right">
     <img class="title" src="@/assets/img/title.png">
-    <img class="input-bg" src="@/assets/img/input-bg.png">
+    <img class="confirm-txt" src="@/assets/img/free_txt.png" />
     <input type="text" class="input"
     placeholder="如不填写，则使用默认祝福～"
     value="祝高杨24岁生日快乐！" v-model="wish" v-focus />
-    <img class="confirm-txt" src="@/assets/img/free_txt.png" />
     <img class="confirm-top" src="@/assets/img/finish.png" @click="onSubmit">
   </div>
 </template>
@@ -49,65 +48,31 @@ export default {
 }
 .confirm-txt {
   position: absolute;
-  width: 220px;
-  top: 305px;
-  left: 40px;
-}
-.input-bg {
-  position: absolute;
-  left: 37px;
-  top: 90px;
-  width: 244px;
+  width: 60vw;
+  bottom: 30vh;
+  height: 100vw;
+  left: 11vw;
 }
 .input {
   position: absolute;
-  left: 41px;
-  top: 147px;
-  width: 239px;
-  height: 115px;
+  left: 11vw;
+  bottom: 30vh;
+  width: 60vw;
+  height: 30vw;
+  color: #4b4a4a;
   outline: 0;
   border: 0;
   padding: 0;
-  color: #4b4a4a;
   background: transparent;
-  font-size: 18px;
-  line-height: 23px;
+  font-size: 16px;
   text-align: center;
-}
-.error-tip {
-  position: absolute;
-  top: 275px;
-  left: 0;
-  right: 50px;
-  text-align: center;
-  color: #a35d22;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.error-img {
-  width: 12px;
-  height: 12px;
-  display: block;
-  margin-right: 3px;
-  animation: shine .5s linear infinite alternate both;
+  vertical-align:middle;
 }
 .confirm-top {
   position: absolute;
-  bottom: 30vh;
-  left: 26vw;
+  bottom: 15vh;
+  right: 26vw;
   width: 30vw;
   transition: all .15s linear;
-}
-
-
-@keyframes shine {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 </style>

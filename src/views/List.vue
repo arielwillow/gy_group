@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import _ from 'lodash';
+// import _ from 'lodash';
 import ListItem from '@/components/ListItem.vue';
 import items from '@/mock/items';
 
@@ -78,13 +78,28 @@ export default {
     },
     getConfigByIndex(index) {
       const id = index + 1;
-      const tt = _.random(-10, 10, false);
-      let top;
-      top = window.innerHeight * 0.05 + (index % 6) * 0.1 * window.innerHeight;
-      top += _.random(-0.03, 0.03, true) * window.innerHeight;
-      top = Math.max(top, 0.05);
-      const angle = Math.floor(index / 6) * 30 + tt;
-      const radius = window.innerHeight * 1.35 - top;
+      const ANGLE = [0, 5, 3, 10, 7, 6, 31, 24, 29, 32,
+        32, 28, 69, 67, 69, 62, 66, 63, 96, 94,
+        80, 94, 97, 91, 127, 118, 113, 122, 121,
+        119, 141, 157, 157, 141, 148, 152, 186,
+        176, 172, 172, 176, 184, 210, 213, 204,
+        205, 203, 203, 231, 234, 241, 249, 239,
+        241, 266, 274, 273, 275, 274, 266, 293,
+        310, 295, 308, 294, 305, 327, 323, 340, 337, 330];
+      const RADIUS = [1.2792, 1.2246, 1.1051, 0.9751, 0.8971, 0.8057,
+        1.3, 1.2033, 1.1195, 1.0152, 0.9132, 0.8259, 1.3, 1.2267,
+        1.127, 1.0138, 0.9211, 0.8135, 1.291, 1.1703, 1.0748,
+        0.9932, 0.9114, 0.7911, 1.2895, 1.2078, 1.1201,
+        1.0153, 0.8963, 0.8012, 1.2992, 1.1834, 1.1292,
+        1.0285, 0.9277, 0.8238, 1.2773, 1.2145, 1.107,
+        1.0117, 0.9038, 0.8221, 1.3, 1.2036, 1.076, 0.9846,
+        0.8792, 0.8019, 1.2873, 1.2067, 1.1193, 1.0044,
+        0.88, 0.7792, 1.3, 1.222, 1.0761, 1.0072, 0.9206,
+        0.7975, 1.3, 1.2055, 1.1164, 1.0202, 0.9064, 0.8221,
+        1.286, 1.1768, 1.0952, 0.9971, 0.8894];
+      const angle = ANGLE[index];
+      const radius = window.innerHeight * RADIUS[index];
+      const top = window.innerHeight * (1.35 - RADIUS[index]);
       return {
         id, top, angle, radius,
       };
