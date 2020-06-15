@@ -117,8 +117,7 @@ export default {
   color: rgb(163, 93, 34);
 }
 .list {
-  position: absolute;
-  top:6vh;
+  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -134,6 +133,7 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
+  width: 12.5vw;
   height: 100%;
   background: #a35d22;
   text-align: center;

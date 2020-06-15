@@ -21,7 +21,7 @@ export default {
   methods: {
     onSubmit() {
       const { sele, name } = this.$route.query;
-      if (this.name) {
+      if (this.wish) {
         this.$emit('login', this.wish);
         localStorage.setItem('free', this.wish);
         this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${this.wish}`);
@@ -43,9 +43,9 @@ export default {
 }
 .title {
   position: absolute;
-  top: 16px;
-  right: 53px;
-  width: 114px;
+  top: 1vh;
+  right: 17vw;
+  width: 28vw;
 }
 .confirm-txt {
   position: absolute;
@@ -95,9 +95,9 @@ export default {
 }
 .confirm-top {
   position: absolute;
-  top: 563px;
-  right: 100px;
-  width: 110px;
+  bottom: 30vh;
+  left: 26vw;
+  width: 30vw;
   transition: all .15s linear;
 }
 

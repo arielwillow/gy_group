@@ -8,12 +8,14 @@
       <div v-if="!imgUrl">
       <div class="name" style="vertical-align: middle;display: table-cell;">
         <img :src="imgsrc" class="nameImg"/>
-        <p class="nameClass">{{nameA}}</p>
+        <div class="name-bottom">
+          <p class="nameClass">{{nameA}}</p>
+        </div>
       </div>
         <img src="@/assets/img/title.png" class="headImg"/>
         <div class="barA">
           <div class="finishedA">已完成 {{selectedCount}} 件</div>
-          <div class="qrDiv" style="vertical-align: middle;display: table-cell;">
+          <div class="qrDiv">
             <p class="wishtxt">{{wishA}}</p>
           </div>
         </div>
@@ -97,29 +99,41 @@ export default {
 }
 .name{
   position: absolute;
-  top: 3vh;
-  left: 5vw;
-  height: 43vw;
+  top: 0;
+  left: 1vw;
+  height: 45vw;
   width: 24vw;
+  justify-content: center;
+  text-align: center;
+}
+.name-bottom{
+  bottom: 0;
+  height: 34%;
+  width: 100%;
+  display: table;
 }
 .nameImg {
-  width: 18vw;
-  height: 18vw;
+  position: absolute;
+  left: 2vw;
+  top: 12vw;
+  width: 20vw;
+  height: 20vw;
   border: 0.5vw solid #a35d22;
   border-radius: 50%;
   box-shadow: 0px 1px 3px 0px black;
-  z-index: 100;
+  display:table-cell;
+  text-align: center;
 }
 .nameClass {
-  width: 18vw;
-  margin-top: 3px;
-  margin-left: 10px;
+  position: absolute;
+  top: 35vw;
+  width: 100%;
   font-size: 18px;
-  z-index: 100;
   font-weight: bold;
   word-wrap: break-word;
-  justify-content: center;
-  flex-direction: row;
+  text-align: center;
+  display:table-cell;
+  vertical-align: middle;
 }
 .footer-txt {
   font-size: 10px;
@@ -153,16 +167,18 @@ export default {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   width: 40%;
-  background-color: #4579a0;
-  display: flex;
-  font-size: 12px;
+  display: table;
+  font-size: 13px;
   height: 16vw;
   line-height: 5.3vw;
-  justify-content: center;
   word-wrap: break-word;
+  background-color: #4579a0;
 }
 .wishtxt{
-  justify-content: center;
+  display:table-cell;
+  vertical-align:middle;
+  text-align: center;
+  width:100%;
 }
 .barA {
   position: relative;

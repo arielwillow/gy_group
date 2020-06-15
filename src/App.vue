@@ -98,7 +98,7 @@ body {
   top: 0;
   width: 18vw;
   height: 100vh;
-  background: url(~@/assets/img/side.jpg) repeat-y 0 0 / 100%;
+  background: url(~@/assets/img/side.png) repeat-y 0 0 / 100%;
   animation: side 40s linear infinite both;
 }
 
