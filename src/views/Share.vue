@@ -58,7 +58,7 @@ export default {
         return {
           idd: item,
           text: items[item - 1],
-          src: `/things/${itemSrc}.png`,
+          src: `/715_Things_GY/things/${itemSrc}.png`,
         };
       });
     },

@@ -82,21 +82,11 @@ export default {
   height: 12px;
   display: block;
   margin-right: 3px;
-  animation: shine .5s linear infinite alternate both;
 }
 .confirm-top {
   position: absolute;
   bottom: 30vh;
   left: 26vw;
   width: 30vw;
-  transition: all .15s linear;
-}
-@keyframes shine {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 </style>

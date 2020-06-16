@@ -50,14 +50,6 @@ export default {
   width: auto;
   height: 30vh;
 }
-.eye-outline {
-  position: absolute;
-  top: 125px;
-  left: 262px;
-  width: 66px;
-  height: 66px;
-  animation: spin 7s linear infinite both;
-}
 .slide-btn {
   position: absolute;
   bottom: 15vw;
