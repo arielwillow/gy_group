@@ -9,7 +9,7 @@
       <div class="name" style="vertical-align: middle;display: table-cell;">
         <img src="@/assets/img/avatar.png" class="nameImg"/>
         <div class="name-bottom">
-          <p class="nameClass">{{nameA}}</p>
+          <p class="nameClass" style="white-space: pre-line;">{{nameA}}</p>
         </div>
       </div>
         <img src="@/assets/img/title.png" class="headImg"/>
@@ -28,6 +28,7 @@
           </b-row>
         </div>
         <p class="footer-txt">图源CR：@高杨_Gyon @高杨的小剧场”</p>
+        <p class="footer-txt">@高杨全球粉丝后援会 @保利演出有限公司 @TiAn咸鱼安”</p>
         <p class="footer-txt">样式仿照：网易哒哒“人生必做的100件事”</p>
         <p class="footer-txt">By：德克馒头与豹子头 2020.07.15</p>
       </div>
@@ -44,10 +45,22 @@ export default {
     const selectItems = this.$route.query.sele.split(',');
     const { name, wish } = this.$route.query;
     const itemlen = selectItems.length;
+    let n1;
+    let n2;
+    if (name.length === 4 || name.length === 5) {
+      n1 = name.slice(0, 2);
+      n2 = name.slice(2);
+    } else if (name.length === 6) {
+      n1 = name.slice(0, 3);
+      n2 = name.slice(3);
+    } else {
+      n1 = name;
+      n2 = '';
+    }
     return {
       selectedItems: selectItems,
       selectedCount: itemlen,
-      nameA: name,
+      nameA: `${n1}\n${n2}`,
       wishA: wish,
     };
   },
@@ -186,7 +199,7 @@ export default {
   background-color: black;
   padding: 2.7vw;
   color:white;
-  font-size: 35px;
+  font-size: 9vw;
   width: 60%;
   text-align: center;
   font-weight: bolder;

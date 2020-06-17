@@ -101,7 +101,7 @@ export default {
 .tipsDiv {
   text-align: center;
   position: absolute;
-  bottom: 17vh;
+  bottom: 23vh;
   left: 0px;
   right: 0px;
 }
@@ -163,7 +163,7 @@ export default {
 }
 .btn-text {
   position: absolute;
-  bottom: 10vh;
+  bottom: 15vh;
   left: 35vw;
   width: 30vw;
 }
