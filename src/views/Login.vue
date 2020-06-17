@@ -1,15 +1,15 @@
 <template>
   <div class="login">
-    <img class="title" src="@/assets/img/title.png">
-    <img class="confirm-txt" src="@/assets/img/free_txt.png" />
-    <img class="input-bg" src="@/assets/img/input-bg.png" />
+    <img class="title" src="/715_Things_GY/img/title.png">
+    <img class="confirm-txt" src="/715_Things_GY/img/free_txt.png" />
+    <img class="input-bg" src="/715_Things_GY/img/input-bg.png" />
     <textarea type="text" class="input"
     placeholder="如不填写，则使用默认祝福～"
     value="祝高杨24岁生日快乐！" v-model="wish" v-focus />
     <div class="error-tip" v-if="showError">
-      <img class="error-img" src="@/assets/img/error.png">字数最好不要超过33哦~
+      <img class="error-img" src="/715_Things_GY/img/error.png">字数最好不要超过33哦~
     </div>
-    <img class="confirm-top" src="@/assets/img/finish.png" @click="onSubmit">
+    <img class="confirm-top" src="/715_Things_GY/img/finish.png" @click="onSubmit">
   </div>
 </template>
 

@@ -1,9 +1,5 @@
 <template>
   <div class="app">
-    <audio ref="bgMusic" src="@/assets/audio/bg.mp3" loop="loop"></audio>
-    <div class="msc-div" v-if="rout === '/'">
-      <div class="music-btn" @click = "playMusic"></div>
-    </div>
     <transition name="slide-left">
       <router-view @login="saveName" />
     </transition>
@@ -58,7 +54,7 @@ export default {
   position: relative;
   width: 12vh;
   height: 12vh;
-  background: url(~@/assets/img/music-btn.png) no-repeat center / contain;
+  background: url(/715_Things_GY/img/music-btn.png) no-repeat center / contain;
 }
 body {
   margin: 0;
@@ -102,7 +98,7 @@ body {
   top: 0;
   width: 18vw;
   height: 100vh;
-  background: url(~@/assets/img/side.png) repeat-y 0 0 / 100%;
+  background: url(/715_Things_GY/img/side.png) repeat-y 0 0 / 100%;
   animation: side 40s linear infinite both;
 }
 

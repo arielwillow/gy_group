@@ -26,7 +26,7 @@
     </div>
     <template v-if="selectedCount">
       <div @click = "goToShare">
-      <img class="btn-text" src="@/assets/img/confirm-btn.png">
+      <img class="btn-text" src="/715_Things_GY/img/confirm-btn.png">
       </div>
     </template>
   </div>
@@ -122,7 +122,7 @@ export default {
 .top {
   position: relative;
   height: 5.5vh;
-  background: url(~@/assets/img/select-top.png) no-repeat 0 0 / cover;
+  background: url(/715_Things_GY/img/select-top.png) no-repeat 0 0 / cover;
   box-shadow: 0 1px rgba(0, 0, 0, .3);
 }
 .num-box {

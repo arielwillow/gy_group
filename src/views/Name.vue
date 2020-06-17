@@ -1,12 +1,12 @@
 <template>
   <div class="name">
-    <img class="title" src="@/assets/img/title.png">
-    <img class="input-bg" src="@/assets/img/input_name.png">
+    <img class="title" src="/715_Things_GY/img/title.png">
+    <img class="input-bg" src="/715_Things_GY/img/input_name.png">
     <input type="text" class="input" v-model="name" v-focus />
     <div class="error-tip" v-if="showError">
-      <img class="error-img" src="@/assets/img/error.png">请输入你的名字，字数要小于等于6哦~
+      <img class="error-img" src="/715_Things_GY/img/error.png">请输入你的名字，字数要小于等于6哦~
     </div>
-    <img class="confirm-top" src="@/assets/img/confirm-top.png" @click="onSubmit">
+    <img class="confirm-top" src="/715_Things_GY/img/confirm-top.png" @click="onSubmit">
   </div>
 </template>
 

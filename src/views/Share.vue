@@ -7,12 +7,12 @@
     <div class="sharee" ref="mainDom">
       <div v-if="!imgUrl">
       <div class="name" style="vertical-align: middle;display: table-cell;">
-        <img src="@/assets/img/avatar.png" class="nameImg"/>
+        <img src="/715_Things_GY/img/avatar.png" class="nameImg"/>
         <div class="name-bottom">
           <p class="nameClass" style="white-space: pre-line;">{{nameA}}</p>
         </div>
       </div>
-        <img src="@/assets/img/title.png" class="headImg"/>
+        <img src="/715_Things_GY/img/title.png" class="headImg"/>
         <div class="barA">
           <div class="finishedA">已完成 {{selectedCount}} 件</div>
           <div class="qrDiv">
