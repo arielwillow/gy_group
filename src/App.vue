@@ -1,5 +1,9 @@
 <template>
   <div class="app">
+    <audio ref="bgMusic" src="@/assets/audio/bg.mp3" loop="loop" preload="auto"></audio>
+    <div class="msc-div" v-if="rout === '/home'">
+      <div class="music-btn" @click = "playMusic"></div>
+    </div>
     <transition name="slide-left">
       <router-view @login="saveName" />
     </transition>
@@ -17,8 +21,8 @@ export default {
   },
   watch: {
     $route(to) {
-      // console.log(to, from);
-      if (to.path !== '/') this.rout = '123';
+      if (to.path !== '/' && to.path !== '/home') this.rout = '123';
+      else if (to.path === '/home') this.rout = '/home';
       else this.rout = '/';
     },
   },

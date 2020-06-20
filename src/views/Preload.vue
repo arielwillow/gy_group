@@ -1,8 +1,11 @@
 <template>
-  <div class="page-container" style="text-align: center;">
-    <div id="loading-panel">
-      <h1><strong>Loading...</strong></h1>
-      <h2><strong>{{percent}}</strong></h2>
+  <div class="page-container">
+    <div class="loading-panel">
+      <p>送给24岁的高先生</p>
+      <p> </p>
+      <p>也送给喜欢高杨的你</p>
+      <p> </p>
+      <p>{{percent}}</p>
     </div>
   </div>
 </template>
@@ -21,80 +24,7 @@ export default {
   methods: {
     preload() {
       const imgs = [
-        '/715_Things_GY/things/1.png',
-        '/715_Things_GY/things/2.png',
-        '/715_Things_GY/things/3.png',
-        '/715_Things_GY/things/4.png',
-        '/715_Things_GY/things/5.png',
-        '/715_Things_GY/things/6.png',
-        '/715_Things_GY/things/7.png',
-        '/715_Things_GY/things/8.png',
-        '/715_Things_GY/things/9.png',
-        '/715_Things_GY/things/10.png',
-        '/715_Things_GY/things/11.png',
-        '/715_Things_GY/things/12.png',
-        '/715_Things_GY/things/13.png',
-        '/715_Things_GY/things/14.png',
-        '/715_Things_GY/things/15.png',
-        '/715_Things_GY/things/16.png',
-        '/715_Things_GY/things/17.png',
-        '/715_Things_GY/things/18.png',
-        '/715_Things_GY/things/19.png',
-        '/715_Things_GY/things/20.png',
-        '/715_Things_GY/things/21.png',
-        '/715_Things_GY/things/22.png',
-        '/715_Things_GY/things/23.png',
-        '/715_Things_GY/things/24.png',
-        '/715_Things_GY/things/25.png',
-        '/715_Things_GY/things/26.png',
-        '/715_Things_GY/things/27.png',
-        '/715_Things_GY/things/28.png',
-        '/715_Things_GY/things/29.png',
-        '/715_Things_GY/things/30.png',
-        '/715_Things_GY/things/31.png',
-        '/715_Things_GY/things/32.png',
-        '/715_Things_GY/things/33.png',
-        '/715_Things_GY/things/34.png',
-        '/715_Things_GY/things/35.png',
-        '/715_Things_GY/things/36.png',
-        '/715_Things_GY/things/37.png',
-        '/715_Things_GY/things/38.png',
-        '/715_Things_GY/things/39.png',
-        '/715_Things_GY/things/40.png',
-        '/715_Things_GY/things/41.png',
-        '/715_Things_GY/things/42.png',
-        '/715_Things_GY/things/43.png',
-        '/715_Things_GY/things/44.png',
-        '/715_Things_GY/things/45.png',
-        '/715_Things_GY/things/46.png',
-        '/715_Things_GY/things/47.png',
-        '/715_Things_GY/things/48.png',
-        '/715_Things_GY/things/49.png',
-        '/715_Things_GY/things/50.png',
-        '/715_Things_GY/things/51.png',
-        '/715_Things_GY/things/52.png',
-        '/715_Things_GY/things/53.png',
-        '/715_Things_GY/things/54.png',
-        '/715_Things_GY/things/55.png',
-        '/715_Things_GY/things/56.png',
-        '/715_Things_GY/things/57.png',
-        '/715_Things_GY/things/58.png',
-        '/715_Things_GY/things/59.png',
-        '/715_Things_GY/things/60.png',
-        '/715_Things_GY/things/61.png',
-        '/715_Things_GY/things/62.png',
-        '/715_Things_GY/things/63.png',
-        '/715_Things_GY/things/64.png',
-        '/715_Things_GY/things/65.png',
-        '/715_Things_GY/things/66.png',
-        '/715_Things_GY/things/67.png',
-        '/715_Things_GY/things/68.png',
-        '/715_Things_GY/things/69.png',
-        '/715_Things_GY/things/70.png',
-        '/715_Things_GY/things/71.png',
         '/715_Things_GY/img/title.png',
-        '/715_Things_GY/img/title.png',
-        '/715_Things_GY/img/.DS_Store',
         '/715_Things_GY/img/free_txt.png',
         '/715_Things_GY/img/confirm-top.png',
         '/715_Things_GY/img/side.png',
@@ -108,7 +38,7 @@ export default {
         '/715_Things_GY/img/finish.png',
         '/715_Things_GY/img/input_name.png',
         '/715_Things_GY/img/music-btn.png',
-        '/715_Things_GY/img/word.png',
+        '/715_Things_GY/img/loading.png',
       ];
       for (let i = 0, len = imgs.length; i < len; i += 1) {
         const image = new Image();
@@ -116,7 +46,7 @@ export default {
         image.onload = () => {
           this.count += 1;
           // 计算图片加载的百分数，绑定到percent变量
-          const percentNum = Math.floor((this.count / 5) * 100);
+          const percentNum = Math.floor((this.count / 15) * 100);
           this.percent = `${percentNum}%`;
         };
       }
@@ -125,8 +55,9 @@ export default {
   watch: {
     count(val) {
       // console.log(val)
-      if (val === 5) {
+      if (val === 15) {
         // 图片加载完成后跳转页面
+        this.rout = '/home';
         this.$router.push({ path: 'home' });
       }
     },
@@ -136,7 +67,17 @@ export default {
 
 <style scoped>
 .page-container {
-  position: 48vh;
-  width: 25vw;
+  width: 100%;
+  height: 100%;
+  background-color: #d2e0e9;
+}
+.loading-panel {
+  position: absolute;
+  top: 30vh;
+  width: 100vw;
+  left: 0vw;
+  z-index: 100;
+  text-align: center;
+  font-size: 15px;
 }
 </style>

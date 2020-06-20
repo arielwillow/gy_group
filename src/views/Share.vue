@@ -27,9 +27,9 @@
             </b-col>
           </b-row>
         </div>
-        <p class="footer-txt">图源CR：@高杨_Gyon @高杨的小剧场”</p>
-        <p class="footer-txt">@高杨全球粉丝后援会 @保利演出有限公司 @TiAn咸鱼安”</p>
-        <p class="footer-txt">样式仿照：网易哒哒“人生必做的100件事”</p>
+        <p class="footer-txt">图源CR：@高杨_Gyon @高杨的小剧场</p>
+        <p class="footer-txt">@高杨全球粉丝后援会 @保利演出有限公司 @TiAn咸鱼安</p>
+        <p class="footer-txt">样式仿照：网易哒哒“人生必做的100件事</p>
         <p class="footer-txt">By：德克馒头与豹子头 2020.07.15</p>
       </div>
     </div>

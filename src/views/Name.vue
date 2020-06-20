@@ -2,7 +2,7 @@
   <div class="name">
     <img class="title" src="/715_Things_GY/img/title.png">
     <img class="input-bg" src="/715_Things_GY/img/input_name.png">
-    <input type="text" class="input" v-model="name" v-focus />
+    <input type="text" class="input" v-model="name" v-focus ref="input1"/>
     <div class="error-tip" v-if="showError">
       <img class="error-img" src="/715_Things_GY/img/error.png">请输入你的名字，字数要小于等于6哦~
     </div>
@@ -23,7 +23,7 @@ export default {
       if (this.name && (this.name.length <= 6)) {
         this.$emit('login', this.name);
         this.showError = false;
-        this.$router.replace(`/list?name=${this.name}`);
+        this.$router.replace(`/loading?name=${this.name}`);
       } else {
         this.showError = true;
       }
@@ -54,7 +54,7 @@ export default {
 }
 .title {
   position: absolute;
-  top: 1vh;
+  top: 2vw;
   right: 0vw;
   width: 28vw;
 }
@@ -84,7 +84,7 @@ export default {
 }
 .confirm-top {
   position: absolute;
-  bottom: 30vh;
+  top: 65vh;
   left: 35vw;
   width: 30vw;
 }

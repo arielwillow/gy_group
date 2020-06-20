@@ -1,13 +1,8 @@
 <template>
   <div class="home scrolling-side">
-    <audio ref="bgMusic" src="@/assets/audio/bg.mp3" loop="loop" preload="auto"></audio>
-    <div class="msc-div" v-if="rout === '/'">
-      <div class="music-btn" @click = "playMusic"></div>
-    </div>
     <img class="title" src="/715_Things_GY/img/title.png">
     <img class="slide-btn-outer" src="/715_Things_GY/img/slide-btn-outer.png">
     <img class="slide-btn" src="/715_Things_GY/img/slide-btn.png" @click="toLogin">
-    <img class="words" src="/715_Things_GY/img/word.png">
   </div>
 </template>
 
@@ -59,13 +54,6 @@ export default {
   top: 17vh;
   width: 68vw;
   height: auto;
-}
-.words {
-  position: absolute;
-  right: 8vw;
-  top: 50vh;
-  width: auto;
-  height: 30vh;
 }
 .slide-btn {
   position: absolute;

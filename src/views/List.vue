@@ -21,7 +21,6 @@
     <div>
       <div class="tipsDiv">
       <p class="tips">不用担心错过，还会转回来哒~</p>
-      <p class="tips">每71.5秒就会转一圈哦~</p>
       </div>
     </div>
     <template v-if="selectedCount">
@@ -60,7 +59,7 @@ export default {
           text: item,
           style: {
             transform: `translateY(${top}px) rotate(${angle}deg)`,
-            transformOrigin: `center ${radius}px`,
+            transformOrigin: `center ${radius}px`, // ${radius}vh
           },
           radius,
         };
@@ -79,6 +78,9 @@ export default {
     getConfigByIndex(index) {
       const id = index + 1;
       const angle = ANGLE[index];
+      // const getScreenHeight = document.documentElement
+      //  ? document.documentElement.clientHeight
+      //  : window.innerHeight;
       const radius = window.innerHeight * RADIUS[index];
       const top = window.innerHeight * (1.35 - RADIUS[index]);
       return {
@@ -91,7 +93,6 @@ export default {
       } else {
         this.selectedItems.push(text);
       }
-      // console.log(this.selectedItems);
     },
   },
 };
@@ -101,7 +102,7 @@ export default {
 .tipsDiv {
   text-align: center;
   position: absolute;
-  bottom: 23vh;
+  bottom: 25vh;
   left: 0px;
   right: 0px;
 }
@@ -146,17 +147,17 @@ export default {
   font-size: 1.5vh;
 }
 .list-bd {
-  position: absolute;
+  position: fixed;
   top: 6vh;
   left: calc(50% - 135vh);
   width: 270vh;
   height: 270vh;
   border-radius: 50%;
-  animation: spin 71.5s linear infinite;
+  animation: spin 117s linear infinite;
   color: #000;
 }
 .list-item {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 50%;
   font-size: 11px;

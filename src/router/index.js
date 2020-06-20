@@ -32,6 +32,11 @@ const routes = [
     component: () => import('../views/List.vue'),
   },
   {
+    path: '/loading',
+    name: 'loading',
+    component: () => import('../views/Loading.vue'),
+  },
+  {
     path: '/share',
     name: 'share',
     component: () => import('../views/Share.vue'),

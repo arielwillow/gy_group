@@ -4,7 +4,7 @@
     <img class="confirm-txt" src="/715_Things_GY/img/free_txt.png" />
     <img class="input-bg" src="/715_Things_GY/img/input-bg.png" />
     <textarea type="text" class="input"
-    placeholder="如不填写，则使用默认祝福～"
+    placeholder="空白提交则使用默认祝福～"
     value="祝高杨24岁生日快乐！" v-model="wish" v-focus />
     <div class="error-tip" v-if="showError">
       <img class="error-img" src="/715_Things_GY/img/error.png">字数最好不要超过33哦~
@@ -49,7 +49,7 @@ export default {
 }
 .title {
   position: absolute;
-  top: 1vh;
+  top: 2vw;
   right: 0vw;
   width: 28vw;
 }
@@ -68,15 +68,15 @@ export default {
 .input {
   position: absolute;
   left: 23vw;
-  top: 50vh;
+  top: calc(40%+15vw);
   width: 54vw;
-  height: 30vw;
+  height: 15vw;
   color: #4b4a4a;
   outline: 0;
   border: 0;
   padding: 0;
   background: transparent;
-  font-size: 16px;
+  font-size: 15px;
   text-align: center;
   display: table-cell;
   vertical-align:middle;
@@ -85,13 +85,13 @@ export default {
 }
 .confirm-top {
   position: absolute;
-  bottom: 15vh;
+  top: 75vh;
   right: 17vw;
   width: 30vw;
 }
 .error-tip {
   position: absolute;
-  top: calc(40%+45vw);
+  top: calc(40%+33vw);
   left: 0;
   left: 23vw;
   width: 54vw;
