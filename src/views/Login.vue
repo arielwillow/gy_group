@@ -1,15 +1,16 @@
 <template>
   <div class="login">
     <img class="title" src="/715_Things_GY/img/title.png">
-    <img class="confirm-txt" src="/715_Things_GY/img/free_txt.png" />
-    <img class="input-bg" src="/715_Things_GY/img/input-bg.png" />
+    <img class="endingTxt" src="/715_Things_GY/img/endingTxt.png" />
+    <img class="wishBg" src="/715_Things_GY/img/wishBg.png" />
     <textarea type="text" class="input"
     placeholder="空白提交则使用默认祝福～"
-    value="祝高杨24岁生日快乐！" v-model="wish" v-focus />
-    <div class="error-tip" v-if="showError">
-      <img class="error-img" src="/715_Things_GY/img/error.png">字数最好不要超过33哦~
+    value="祝高杨24岁生日快乐！" v-model="wish" />
+    <div class="errTip" v-if="showError">
+      <img class="errImg" src="/715_Things_GY/img/error.png">字数最好不要超过33哦~
     </div>
-    <img class="confirm-top" src="/715_Things_GY/img/finish.png" @click="onSubmit">
+    <img class="back" src="/715_Things_GY/img/backBtn.png" @click="backList">
+    <img class="wishSmt" src="/715_Things_GY/img/nextBtn.png" @click="onSubmit">
   </div>
 </template>
 
@@ -17,25 +18,38 @@
 export default {
   data() {
     return {
-      name: '',
+      wish: this.VAR.Wish,
       showError: false,
     };
   },
   methods: {
     onSubmit() {
-      const { sele, name } = this.$route.query;
+      // const { sele, name } = this.$route.query;
       if (this.wish && this.wish.length <= 33) {
+        this.VAR.setWish(this.wish);
         this.$emit('login', this.wish);
         localStorage.setItem('free', this.wish);
-        this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${this.wish}`);
+        // this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${this.wish}`);
+        this.$router.push({ path: 'share' });
         this.showError = false;
       } else if (this.wish && this.wish.length > 33) {
         this.showError = true;
       } else {
-        const w = '祝高杨24岁生日快乐！';
-        this.$emit('login', w);
-        this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${w}`);
+        // const w = '祝高杨24岁生日快乐！';
+        // this.$emit('login', w);
+        // this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${w}`);
+        this.$router.push({ path: 'share' });
       }
+    },
+    backList() {
+      if (this.wish && this.wish.length <= 33) {
+        this.VAR.setWish(this.wish);
+        this.$router.push({ path: 'list' });
+      } else {
+        this.$router.push({ path: 'list' });
+      }
+      // const { sele, name } = this.$route.query;
+      // this.$router.replace(`/list?name=${name}&sele=${sele}`);
     },
   },
 };
@@ -53,13 +67,13 @@ export default {
   right: 0vw;
   width: 28vw;
 }
-.confirm-txt {
+.endingTxt {
   position: absolute;
   top: 15vh;
   height: 20vh;
   left: 20vw;
 }
-.input-bg {
+.wishBg {
   position: absolute;
   width: 60vw;
   top: 40vh;
@@ -83,29 +97,37 @@ export default {
   maxlength: 33;
   wrap: hard;
 }
-.confirm-top {
-  position: absolute;
-  top: 75vh;
-  right: 17vw;
-  width: 30vw;
-}
-.error-tip {
+.errTip {
   position: absolute;
   top: calc(40%+33vw);
   left: 0;
   left: 23vw;
   width: 54vw;
   text-align: center;
-  color: #a35d22;
+  color: #8d7c84;
   font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.error-img {
+.errImg {
   width: 12px;
   height: 12px;
   display: block;
   margin-right: 3px;
+}
+.wishSmt {
+  position: absolute;
+  top: 75vh;
+  right: 26vw;
+  width: 20vw;
+  height: 20vw;
+}
+.back {
+  position: absolute;
+  top: calc(75% + 2vw);
+  left: 26vw;
+  width: 16vw;
+  height: 16vw;
 }
 </style>

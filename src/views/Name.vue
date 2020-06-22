@@ -1,12 +1,14 @@
 <template>
   <div class="name">
     <img class="title" src="/715_Things_GY/img/title.png">
-    <img class="input-bg" src="/715_Things_GY/img/input_name.png">
-    <input type="text" class="input" v-model="name" v-focus ref="input1"/>
-    <div class="error-tip" v-if="showError">
-      <img class="error-img" src="/715_Things_GY/img/error.png">请输入你的名字，字数要小于等于6哦~
+    <img class="inputBg" src="/715_Things_GY/img/inputBg.png">
+    <input type="text" class="input" v-model="name"
+    @blur="updateStatus1" @focus="updateStatus2"/>
+    <div class="errTip" v-if="showError">
+      <img class="errImg" src="/715_Things_GY/img/error.png">请输入您的名字，字数不超过6哦~
     </div>
-    <img class="confirm-top" src="/715_Things_GY/img/confirm-top.png" @click="onSubmit">
+    <img class="nameSmt" src="/715_Things_GY/img/nextBtn.png" @click="onSubmit" v-if="isShow">
+    <img class="back" src="/715_Things_GY/img/backBtn.png" @click="backHome">
   </div>
 </template>
 
@@ -14,25 +16,64 @@
 export default {
   data() {
     return {
-      name: '',
+      name: this.VAR.Name,
       showError: false,
+      isShow: true,
     };
   },
   methods: {
     onSubmit() {
       if (this.name && (this.name.length <= 6)) {
         this.$emit('login', this.name);
+        this.VAR.setName(this.name);
         this.showError = false;
-        this.$router.replace(`/loading?name=${this.name}`);
+        this.$router.push(
+          {
+            path: 'loading',
+            query: {
+              name: this.name,
+            },
+          },
+        );
       } else {
         this.showError = true;
       }
+    },
+    backHome() {
+      // this.$router.replace('/home');
+      if (this.name && (this.name.length <= 6)) {
+        this.VAR.setName(this.name);
+      }
+      this.$router.push({ path: 'home' });
+    },
+    updateStatus1() {
+      this.isShow = true;
+    },
+    updateStatus2() {
+      this.isShow = false;
     },
   },
 };
 </script>
 
 <style scoped>
+.name {
+  width: 100vw;
+  height: 100%;
+  background-color: #d2e0e9;
+}
+.title {
+  position: absolute;
+  top: 2vw;
+  right: 0vw;
+  width: 28vw;
+}
+.inputBg {
+  position: absolute;
+  left: 20vw;
+  top: 24vh;
+  width: 60vw;
+}
 .input {
   position: absolute;
   left: 20vw;
@@ -47,45 +88,36 @@ export default {
   line-height: 25px;
   text-align: center;
 }
-.name {
-  width: 100vw;
-  height: 100%;
-  background-color: #d2e0e9;
-}
-.title {
-  position: absolute;
-  top: 2vw;
-  right: 0vw;
-  width: 28vw;
-}
-.input-bg {
-  position: absolute;
-  left: 20vw;
-  top: 24vh;
-  width: 60vw;
-}
-.error-tip {
+.errTip {
   position: absolute;
   top: calc(24% + 26vw);
   left: 20vw;
   width: 60vw;
   text-align: center;
-  color: #a35d22;
+  color: #8d7c84;
   font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.error-img {
+.errImg {
   width: 12px;
   height: 12px;
   display: block;
   margin-right: 3px;
 }
-.confirm-top {
+.nameSmt {
   position: absolute;
-  top: 65vh;
-  left: 35vw;
-  width: 30vw;
+  top: 63vh;
+  right: 26vw;
+  width: 20vw;
+  height: 20vw;
+}
+.back {
+  position: absolute;
+  top: calc(63% + 2vw);
+  left: 26vw;
+  width: 16vw;
+  height: 16vw;
 }
 </style>

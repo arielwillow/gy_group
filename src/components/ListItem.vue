@@ -36,8 +36,18 @@ export default {
     },
   },
   data() {
+    // let histItems = this.$route.query.sele;
+    // if (histItems !== null && histItems !== undefined) {
+    //   histItems.split(',');
+    // } else {
+    //   histItems = [];
+    // }
+    let sValue = false;
+    if (this.VAR.Selection.includes(this.id.toString())) {
+      sValue = true;
+    }
     return {
-      selected: false,
+      selected: sValue,
     };
   },
   methods: {

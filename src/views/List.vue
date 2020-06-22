@@ -1,14 +1,14 @@
 <template>
   <div class="list">
     <div class="top">
-      <div class="num-box">
-        <div class="select-num">{{ selectedCount }}</div>
-        <div class="select-state">已选择</div>
+      <div class="numBox">
+        <div class="selectNum">{{ selectedCount }}</div>
+        <div class="selectState">已选择</div>
       </div>
     </div>
-    <div ref="wheel" class="list-bd" :style="{ animationPlayState }">
+    <div ref="wheel" class="listBg" :style="{ animationPlayState }">
       <list-item
-        class="list-item"
+        class="listItem"
         v-for="item in randomItems"
         :key="item.id"
         :id="item.id"
@@ -23,11 +23,9 @@
       <p class="tips">不用担心错过，还会转回来哒~</p>
       </div>
     </div>
-    <template v-if="selectedCount">
-      <div @click = "goToShare">
-      <img class="btn-text" src="/715_Things_GY/img/confirm-btn.png">
-      </div>
-    </template>
+    <img class="listSmt" src="/715_Things_GY/img/nextBtn.png"
+    @click = "goToShare" v-if="selectedCount">
+    <img class="back" src="/715_Things_GY/img/backBtn.png" @click = "backName">
   </div>
 </template>
 
@@ -42,9 +40,15 @@ export default {
     ListItem,
   },
   data() {
+    // let histItems = this.$route.query.sele;
+    // if (histItems !== null && histItems !== undefined) {
+    //  histItems.split(',');
+    // } else {
+    //  histItems = [];
+    // }
     return {
       items,
-      selectedItems: [],
+      selectedItems: this.VAR.Selection,
       animationPlayState: 'running',
     };
   },
@@ -59,7 +63,7 @@ export default {
           text: item,
           style: {
             transform: `translateY(${top}px) rotate(${angle}deg)`,
-            transformOrigin: `center ${radius}px`, // ${radius}vh
+            transformOrigin: `center ${radius}px`,
           },
           radius,
         };
@@ -71,16 +75,35 @@ export default {
   },
   methods: {
     goToShare() {
-      const { name } = this.$route.query;
-      const selection = this.selectedItems.toString();
-      this.$router.replace(`/login?name=${name}&sele=${selection}`);
+      this.setSelection(this.selectedItems);
+      // const nm = this.$route.query.name;
+      // const selection = this.selectedItems.toString();
+      this.$router.push({ path: 'share' });
+      //   {
+      //     path: 'share',
+      //    query: {
+      //      name: nm,
+      //      sele: selection,
+      //    },
+      //  },
+      // );
+    },
+    backName() {
+      this.setSelection(this.selectedItems);
+      this.$router.push({ path: 'name' });
+      // const nm = this.$route.query.name;
+      // this.$router.push(
+      //  {
+      //    path: 'name',
+      //    query: {
+      //      name: nm,
+      //    },
+      //  },
+      // );
     },
     getConfigByIndex(index) {
       const id = index + 1;
       const angle = ANGLE[index];
-      // const getScreenHeight = document.documentElement
-      //  ? document.documentElement.clientHeight
-      //  : window.innerHeight;
       const radius = window.innerHeight * RADIUS[index];
       const top = window.innerHeight * (1.35 - RADIUS[index]);
       return {
@@ -99,20 +122,6 @@ export default {
 </script>
 
 <style scoped>
-.tipsDiv {
-  text-align: center;
-  position: absolute;
-  bottom: 25vh;
-  left: 0px;
-  right: 0px;
-}
-.tips {
-  text-align: center;
-  margin: auto;
-  font-size: 11px;
-  font-style: italic;
-  color: rgb(163, 93, 34);
-}
 .list {
   position: relative;
   width: 100%;
@@ -122,50 +131,74 @@ export default {
 }
 .top {
   position: relative;
-  height: 5.5vh;
-  background: url(/715_Things_GY/img/select-top.png) no-repeat 0 0 / cover;
+  height: 6vh;
+  background: url(/715_Things_GY/img/selectTop.png) no-repeat 0 0 / cover;
   box-shadow: 0 1px rgba(0, 0, 0, .3);
 }
-.num-box {
+.numBox {
   position: absolute;
   top: 0;
   right: 0;
   width: 12.5vw;
   height: 100%;
-  background: #a35d22;
+  background: #50657e;
   text-align: center;
   line-height: 1;
 }
-.select-num {
+.selectNum {
   font-weight: 700;
   font-style: italic;
   font-size: 2.8vh;
   color: #000;
   margin-top: 0.49vh;
 }
-.select-state {
+.selectState {
   font-size: 1.5vh;
 }
-.list-bd {
+.listBg {
   position: fixed;
   top: 6vh;
   left: calc(50% - 135vh);
   width: 270vh;
   height: 270vh;
   border-radius: 50%;
-  animation: spin 117s linear infinite;
+  animation: spin 125s linear infinite;
   color: #000;
 }
-.list-item {
+.listItem {
   position: fixed;
   top: 0;
   left: 50%;
   font-size: 11px;
 }
-.btn-text {
+.tipsDiv {
+  text-align: center;
+  position: absolute;
+  bottom: 29vh;
+  left: 0px;
+  right: 0px;
+}
+.tips {
+  text-align: center;
+  margin: auto;
+  font-size: 11px;
+  font-style: italic;
+  color: #8d7c84;
+}
+.listSmt {
   position: absolute;
   bottom: 15vh;
-  left: 35vw;
-  width: 30vw;
+  right: 26vw;
+  width: 20vw;
+  height: 20vw;
+  z-index: 100;
+}
+.back {
+  position: absolute;
+  bottom: calc(15% + 2vw);
+  left: 26vw;
+  width: 16vw;
+  height: 16vw;
+  z-index: 100;
 }
 </style>

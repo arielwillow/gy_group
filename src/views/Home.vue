@@ -1,28 +1,21 @@
 <template>
-  <div class="home scrolling-side">
+  <div class="home">
     <img class="title" src="/715_Things_GY/img/title.png">
-    <img class="slide-btn-outer" src="/715_Things_GY/img/slide-btn-outer.png">
-    <img class="slide-btn" src="/715_Things_GY/img/slide-btn.png" @click="toLogin">
+    <img class="con" src="/715_Things_GY/img/con.png">
+    <img class="entryBtn" src="/715_Things_GY/img/nextBtn.png" @click="toLogin">
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {};
-  },
-  mounted() {
-    return {};
-  },
   methods: {
     toLogin() {
-      this.$router.replace('/name');
-    },
-    playMusic() {
-      const { bgMusic } = this.$refs;
-      if (bgMusic.paused) {
-        bgMusic.play();
-      }
+      // this.$router.replace('/name');
+      this.$router.push(
+        {
+          path: 'name',
+        },
+      );
     },
   },
 };
@@ -33,53 +26,47 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #85b8cb;
-}
-.msc-div {
-  position: absolute;
-  top: 6.7vw;
-  right: 0vw;
-  text-align: center;
-  z-index: 100;
-}
-.music-btn {
-  position: relative;
-  width: 12vh;
-  height: 12vh;
-  background: url(/715_Things_GY/img/music-btn.png) no-repeat center / contain;
+  background-color: #afc4d3;
 }
 .title {
   position: absolute;
-  left: 18vw;
-  top: 17vh;
-  width: 68vw;
+  left: 1vw;
+  top: 15vh;
+  width: 85vw;
   height: auto;
 }
-.slide-btn {
+.con {
   position: absolute;
-  bottom: 15vw;
-  right: 15vw;
+  bottom: calc(10% + 19vw);
+  right: 18vw;
   width: 10vw;
-  height: 10vw;
 }
-.slide-btn-outer {
+.entryBtn {
   position: absolute;
-  bottom: 15vw;
-  right: 15vw;
-  width: 10vw;
-  height: 10vw;
+  bottom: 10vh;
+  right: 13vw;
+  height: 20vw;
+  width: 20vw;
+  animation: breathe 1.5s linear infinite alternate both;
+}
+.entryBtnO {
+  position: absolute;
+  bottom: 18vw;
+  right: 18vw;
+  width: 12vw;
+  height: 12vw;
   animation: breathe 1s linear infinite alternate both;
 }
 @keyframes breathe {
   from {
-    width: 10vw;
-    height: 10vw;
+    width: 20vw;
+    height: 20vw;
   }
   to {
-    width: 15vw;
-    height: 15vw;
-    bottom: 12.5vw;
-    right: 12.5vw;
+    width: 22vw;
+    height: 22vw;
+    bottom: calc(10%- 1vw);
+    right: 12vw;
   }
 }
 </style>

@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       count: 0,
-      percent: '',
+      percent: '0%',
     };
   },
   mounted() {
@@ -21,27 +21,6 @@ export default {
   methods: {
     preload() {
       const imgs = [
-        '/715_Things_GY/things/1.png',
-        '/715_Things_GY/things/2.png',
-        '/715_Things_GY/things/3.png',
-        '/715_Things_GY/things/4.png',
-        '/715_Things_GY/things/5.png',
-        '/715_Things_GY/things/6.png',
-        '/715_Things_GY/things/7.png',
-        '/715_Things_GY/things/8.png',
-        '/715_Things_GY/things/9.png',
-        '/715_Things_GY/things/10.png',
-        '/715_Things_GY/things/11.png',
-        '/715_Things_GY/things/12.png',
-        '/715_Things_GY/things/13.png',
-        '/715_Things_GY/things/14.png',
-        '/715_Things_GY/things/15.png',
-        '/715_Things_GY/things/16.png',
-        '/715_Things_GY/things/17.png',
-        '/715_Things_GY/things/18.png',
-        '/715_Things_GY/things/19.png',
-        '/715_Things_GY/things/20.png',
-        '/715_Things_GY/things/21.png',
         '/715_Things_GY/things/22.png',
         '/715_Things_GY/things/23.png',
         '/715_Things_GY/things/24.png',
@@ -99,7 +78,7 @@ export default {
         image.onload = () => {
           this.count += 1;
           // 计算图片加载的百分数，绑定到percent变量
-          const percentNum = Math.floor((this.count / 71) * 100);
+          const percentNum = Math.floor((this.count / 50) * 100);
           this.percent = `${percentNum}%`;
         };
       }
@@ -108,10 +87,18 @@ export default {
   watch: {
     count(val) {
       // console.log(val)
-      if (val === 71) {
+      if (val === 50) {
         // 图片加载完成后跳转页面
-        const { name } = this.$route.query;
-        this.$router.replace(`/list?name=${name}`);
+        const nm = this.$route.query.name;
+        this.$router.replace(
+          {
+            path: 'list',
+            query: {
+              name: nm,
+            },
+          },
+        );
+        // this.$router.replace(`/list?name=${name}`);
       }
     },
   },
