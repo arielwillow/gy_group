@@ -24,26 +24,16 @@ export default {
   methods: {
     onSubmit() {
       if (this.name && (this.name.length <= 6)) {
-        this.$emit('login', this.name);
+        // this.$emit('login', this.name);
         this.VAR.setName(this.name);
         this.showError = false;
-        this.$router.push(
-          {
-            path: 'loading',
-            query: {
-              name: this.name,
-            },
-          },
-        );
+        this.$router.push({ path: 'loading' });
       } else {
         this.showError = true;
       }
     },
     backHome() {
-      // this.$router.replace('/home');
-      if (this.name && (this.name.length <= 6)) {
-        this.VAR.setName(this.name);
-      }
+      this.VAR.setName(this.name);
       this.$router.push({ path: 'home' });
     },
     updateStatus1() {

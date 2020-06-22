@@ -89,16 +89,7 @@ export default {
       // console.log(val)
       if (val === 50) {
         // 图片加载完成后跳转页面
-        const nm = this.$route.query.name;
-        this.$router.replace(
-          {
-            path: 'list',
-            query: {
-              name: nm,
-            },
-          },
-        );
-        // this.$router.replace(`/list?name=${name}`);
+        this.$router.replace({ path: 'list' });
       }
     },
   },

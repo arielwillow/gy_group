@@ -40,9 +40,6 @@ import items from '@/mock/items';
 
 export default {
   data() {
-    // const selectItems = this.$route.query.sele.split(',');
-    // const { name, wish } = this.$route.query;
-    // const itemlen = selectItems.length;
     const name = this.VAR.Name;
     let n1;
     let n2;
@@ -56,11 +53,15 @@ export default {
       n1 = name;
       n2 = '';
     }
+    let wish = this.VAR.Wish;
+    if (wish.length === 0) {
+      wish = '祝高杨24岁生日快乐～';
+    }
     return {
       selectedItems: this.VAR.Selection,
       selectedCount: this.VAR.Selection.length,
       nameA: `${n1}\n${n2}`,
-      wishA: this.VAR.Wish,
+      wishA: wish,
       imgUrl: '',
       firstFlag: true,
     };
@@ -80,17 +81,6 @@ export default {
   methods: {
     backList() {
       this.$router.push({ path: 'list' });
-      // const nm = this.$route.query.name;
-      // const se = this.$route.query.sele;
-      // this.$router.push(
-      //  {
-      //    path: 'list',
-      //    query: {
-      //      name: nm,
-      //      sele: se,
-      //    },
-      //  },
-      // );
     },
   },
 };
@@ -128,7 +118,6 @@ export default {
   width: 24vw;
   justify-content: center;
   text-align: center;
-  background-color: white;
 }
 .name-bottom{
   bottom: 0;
@@ -150,15 +139,14 @@ export default {
 }
 .nameClass {
   position: absolute;
-  top: 30vw;
+  top: 27vw;
   width: 100%;
   font-size: 18px;
   font-weight: bold;
-  word-wrap: break-word;
   text-align: center;
   display:table-cell;
   vertical-align: middle;
-  background-color: red;
+  line-height: 5px;
 }
 .footerTxt {
   font-size: 10px;

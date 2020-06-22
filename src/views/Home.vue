@@ -10,12 +10,7 @@
 export default {
   methods: {
     toLogin() {
-      // this.$router.replace('/name');
-      this.$router.push(
-        {
-          path: 'name',
-        },
-      );
+      this.$router.push({ path: 'name' });
     },
   },
 };

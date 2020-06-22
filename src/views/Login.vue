@@ -24,32 +24,21 @@ export default {
   },
   methods: {
     onSubmit() {
-      // const { sele, name } = this.$route.query;
       if (this.wish && this.wish.length <= 33) {
         this.VAR.setWish(this.wish);
-        this.$emit('login', this.wish);
-        localStorage.setItem('free', this.wish);
-        // this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${this.wish}`);
+        // this.$emit('login', this.wish);
+        // localStorage.setItem('free', this.wish);
         this.$router.push({ path: 'share' });
         this.showError = false;
       } else if (this.wish && this.wish.length > 33) {
         this.showError = true;
       } else {
-        // const w = '祝高杨24岁生日快乐！';
-        // this.$emit('login', w);
-        // this.$router.replace(`/share?sele=${sele}&name=${name}&wish=${w}`);
         this.$router.push({ path: 'share' });
       }
     },
     backList() {
-      if (this.wish && this.wish.length <= 33) {
-        this.VAR.setWish(this.wish);
-        this.$router.push({ path: 'list' });
-      } else {
-        this.$router.push({ path: 'list' });
-      }
-      // const { sele, name } = this.$route.query;
-      // this.$router.replace(`/list?name=${name}&sele=${sele}`);
+      this.VAR.setWish(this.wish);
+      this.$router.push({ path: 'list' });
     },
   },
 };

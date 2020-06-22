@@ -40,12 +40,6 @@ export default {
     ListItem,
   },
   data() {
-    // let histItems = this.$route.query.sele;
-    // if (histItems !== null && histItems !== undefined) {
-    //  histItems.split(',');
-    // } else {
-    //  histItems = [];
-    // }
     return {
       items,
       selectedItems: this.VAR.Selection,
@@ -75,31 +69,12 @@ export default {
   },
   methods: {
     goToShare() {
-      this.setSelection(this.selectedItems);
-      // const nm = this.$route.query.name;
-      // const selection = this.selectedItems.toString();
-      this.$router.push({ path: 'share' });
-      //   {
-      //     path: 'share',
-      //    query: {
-      //      name: nm,
-      //      sele: selection,
-      //    },
-      //  },
-      // );
+      this.VAR.setSelection(this.selectedItems);
+      this.$router.push({ path: 'login' });
     },
     backName() {
-      this.setSelection(this.selectedItems);
+      this.VAR.setSelection(this.selectedItems);
       this.$router.push({ path: 'name' });
-      // const nm = this.$route.query.name;
-      // this.$router.push(
-      //  {
-      //    path: 'name',
-      //    query: {
-      //      name: nm,
-      //    },
-      //  },
-      // );
     },
     getConfigByIndex(index) {
       const id = index + 1;
@@ -170,6 +145,7 @@ export default {
   top: 0;
   left: 50%;
   font-size: 11px;
+  letter-spacing: 2px;
 }
 .tipsDiv {
   text-align: center;

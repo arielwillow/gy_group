@@ -1,6 +1,6 @@
 export default {
   Name: '',
-  Wish: 'test',
+  Wish: '',
   Selection: [],
   setName(name) {
     this.Name = name;
