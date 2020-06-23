@@ -41,6 +41,11 @@ const routes = [
     name: 'share',
     component: () => import('../views/Share.vue'),
   },
+  {
+    path: '/group',
+    name: 'group',
+    component: () => import('../views/Group.vue'),
+  },
 ];
 
 const router = new VueRouter({

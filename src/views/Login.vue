@@ -15,23 +15,29 @@
 </template>
 
 <script>
+import groupInfo from '@/mock/groupInfo';
+
 export default {
   data() {
     return {
       wish: this.VAR.Wish,
       showError: false,
+      name: this.VAR.Name,
     };
   },
   methods: {
     onSubmit() {
-      if (this.wish && this.wish.length <= 33) {
-        this.VAR.setWish(this.wish);
-        // this.$emit('login', this.wish);
-        // localStorage.setItem('free', this.wish);
-        this.$router.push({ path: 'share' });
-        this.showError = false;
-      } else if (this.wish && this.wish.length > 33) {
+      const isGroup = Object.keys(groupInfo).includes(this.name);
+      if (this.wish && this.wish.length > 33) {
         this.showError = true;
+      } else if (this.wish && this.wish.length <= 33 && isGroup) {
+        this.VAR.setWish(this.wish);
+        this.$router.push({ path: 'group' });
+      } else if (this.wish && this.wish.length <= 33) {
+        this.VAR.setWish(this.wish);
+        this.$router.push({ path: 'share' });
+      } else if (isGroup) {
+        this.$router.push({ path: 'group' });
       } else {
         this.$router.push({ path: 'share' });
       }
@@ -58,8 +64,8 @@ export default {
 }
 .endingTxt {
   position: absolute;
-  top: 15vh;
-  height: 20vh;
+  top: 17vh;
+  height: 15vh;
   left: 20vw;
 }
 .wishBg {

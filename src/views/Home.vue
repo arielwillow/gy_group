@@ -13,6 +13,9 @@ export default {
       this.$router.push({ path: 'name' });
     },
   },
+  mounted() {
+    this.VAR.setGlobalheight(window.innerHeight);
+  },
 };
 </script>
 
@@ -25,7 +28,7 @@ export default {
 }
 .title {
   position: absolute;
-  left: 1vw;
+  left: 3vw;
   top: 15vh;
   width: 85vw;
   height: auto;

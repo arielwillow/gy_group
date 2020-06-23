@@ -2,12 +2,14 @@
   <div class="name">
     <img class="title" src="/715_Things_GY/img/title.png">
     <img class="inputBg" src="/715_Things_GY/img/inputBg.png">
-    <input type="text" class="input" v-model="name"
-    @blur="updateStatus1" @focus="updateStatus2"/>
+    <input type="text" class="input" v-model="name"/>
     <div class="errTip" v-if="showError">
-      <img class="errImg" src="/715_Things_GY/img/error.png">请输入您的名字，字数不超过6哦~
+      <img class="errImg" src="/715_Things_GY/img/error.png">请输入您的名字哦~
     </div>
-    <img class="nameSmt" src="/715_Things_GY/img/nextBtn.png" @click="onSubmit" v-if="isShow">
+    <div class="errTip" v-if="!showError">
+      <p>PS：可以随意输入，但羊群小伙伴输入准确微博名会有额外小彩蛋掉落~</p>
+    </div>
+    <img class="nameSmt" src="/715_Things_GY/img/nextBtn.png" @click="onSubmit">
     <img class="back" src="/715_Things_GY/img/backBtn.png" @click="backHome">
   </div>
 </template>
@@ -18,12 +20,11 @@ export default {
     return {
       name: this.VAR.Name,
       showError: false,
-      isShow: true,
     };
   },
   methods: {
     onSubmit() {
-      if (this.name && (this.name.length <= 6)) {
+      if (this.name) {
         // this.$emit('login', this.name);
         this.VAR.setName(this.name);
         this.showError = false;
@@ -35,12 +36,6 @@ export default {
     backHome() {
       this.VAR.setName(this.name);
       this.$router.push({ path: 'home' });
-    },
-    updateStatus1() {
-      this.isShow = true;
-    },
-    updateStatus2() {
-      this.isShow = false;
     },
   },
 };

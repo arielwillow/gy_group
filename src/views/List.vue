@@ -40,10 +40,15 @@ export default {
     ListItem,
   },
   data() {
+    let h = this.VAR.Globalheight;
+    if (window.innerHeight > 0.8 * h) {
+      h = window.innerHeight;
+    }
     return {
       items,
       selectedItems: this.VAR.Selection,
       animationPlayState: 'running',
+      hhh: h,
     };
   },
   computed: {
@@ -79,8 +84,8 @@ export default {
     getConfigByIndex(index) {
       const id = index + 1;
       const angle = ANGLE[index];
-      const radius = window.innerHeight * RADIUS[index];
-      const top = window.innerHeight * (1.35 - RADIUS[index]);
+      const radius = this.hhh * RADIUS[index];
+      const top = this.hhh * (1.35 - RADIUS[index]);
       return {
         id, top, angle, radius,
       };
@@ -145,7 +150,7 @@ export default {
   top: 0;
   left: 50%;
   font-size: 11px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 .tipsDiv {
   text-align: center;
