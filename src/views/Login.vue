@@ -77,7 +77,7 @@ export default {
 .input {
   position: absolute;
   left: 23vw;
-  top: calc(40%+15vw);
+  top: calc(40vh + 15vw);
   width: 54vw;
   height: 15vw;
   color: #4b4a4a;
@@ -120,7 +120,7 @@ export default {
 }
 .back {
   position: absolute;
-  top: calc(75% + 2vw);
+  top: calc(75vh + 2vw);
   left: 26vw;
   width: 16vw;
   height: 16vw;

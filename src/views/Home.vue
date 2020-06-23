@@ -35,7 +35,7 @@ export default {
 }
 .con {
   position: absolute;
-  bottom: calc(10% + 19vw);
+  bottom: calc(10vh + 19vw);
   right: 18vw;
   width: 10vw;
 }
@@ -46,14 +46,6 @@ export default {
   height: 20vw;
   width: 20vw;
   animation: breathe 1.5s linear infinite alternate both;
-}
-.entryBtnO {
-  position: absolute;
-  bottom: 18vw;
-  right: 18vw;
-  width: 12vw;
-  height: 12vw;
-  animation: breathe 1s linear infinite alternate both;
 }
 @keyframes breathe {
   from {
