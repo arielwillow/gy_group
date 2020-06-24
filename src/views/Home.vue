@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <img class="title" src="/715_Things_GY/img/title.png">
-    <img class="con" src="/715_Things_GY/img/con.png">
-    <img class="entryBtn" src="/715_Things_GY/img/nextBtn.png" @click="toLogin">
+    <img class="title" src="/gy_715/img/title.png">
+    <img class="con" src="/gy_715/img/con.png">
+    <img class="entryBtn" src="/gy_715/img/nextBtn.png" @click="toLogin">
   </div>
 </template>
 
@@ -55,7 +55,7 @@ export default {
   to {
     width: 22vw;
     height: 22vw;
-    bottom: calc(10%- 1vw);
+    bottom: calc(10vh - 1vw);
     right: 12vw;
   }
 }

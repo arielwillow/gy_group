@@ -5,7 +5,7 @@ import router from './router';
 import './directives';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-import VAR from './VAR.js';
+import VAR from './VAR';
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

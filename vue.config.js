@@ -23,7 +23,7 @@ module.exports = {
     },
   },
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/715_Things_GY/'
+    ? '/gy_715/'
     : '/',
   // options.extract: false,
   // lintOnSave: false,

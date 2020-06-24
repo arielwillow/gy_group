@@ -7,4 +7,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:arielwillow/715_Things_GY.git master:gh-pages
+git remote add origin https://gitee.com/arielwillow/gy_715.git
+
+git push -f origin master

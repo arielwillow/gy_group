@@ -23,9 +23,9 @@
       <p class="tips">不用担心错过，还会转回来哒~</p>
       </div>
     </div>
-    <img class="listSmt" src="/715_Things_GY/img/nextBtn.png"
+    <img class="listSmt" src="/gy_715/img/nextBtn.png"
     @click = "goToShare" v-if="selectedCount">
-    <img class="back" src="/715_Things_GY/img/backBtn.png" @click = "backName">
+    <img class="back" src="/gy_715/img/backBtn.png" @click = "backName">
   </div>
 </template>
 
@@ -112,7 +112,7 @@ export default {
 .top {
   position: relative;
   height: 6vh;
-  background: url(/715_Things_GY/img/selectTop.png) no-repeat 0 0 / cover;
+  background: url(/gy_715/img/selectTop.png) no-repeat 0 0 / cover;
   box-shadow: 0 1px rgba(0, 0, 0, .3);
 }
 .numBox {
@@ -173,6 +173,7 @@ export default {
   width: 20vw;
   height: 20vw;
   z-index: 100;
+  animation: breathe 1.5s linear infinite alternate both;
 }
 .back {
   position: absolute;
@@ -181,5 +182,17 @@ export default {
   width: 16vw;
   height: 16vw;
   z-index: 100;
+}
+@keyframes breathe {
+  from {
+    width: 20vw;
+    height: 20vw;
+  }
+  to {
+    width: 22vw;
+    height: 22vw;
+    bottom: calc(15vh - 1vw);
+    right: 25vw;
+  }
 }
 </style>

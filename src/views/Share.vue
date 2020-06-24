@@ -1,14 +1,14 @@
 /* eslint-disable guard-for-in */
 <template>
   <div class="A" style="background-color:#afc4d3;">
-    <img src="/715_Things_GY/img/backS.png" class="back" @click="backList"/>
+    <img src="/gy_715/img/backS.png" class="back" @click="backList"/>
     <div class="name" style="vertical-align: middle;display: table-cell;">
-      <img src="/715_Things_GY/img/avatar.png" class="nameImg"/>
+      <img src="/gy_715/img/avatar.png" class="nameImg"/>
       <div class="name-bottom">
         <p class="nameClass" style="white-space: pre-line;">{{nameA}}</p>
       </div>
     </div>
-    <img src="/715_Things_GY/img/title.png" class="headImg"/>
+    <img src="/gy_715/img/title.png" class="headImg"/>
     <div class="barA">
       <div class="finishedA">已完成 {{selectedCount}} 件</div>
       <div class="qrDiv">
@@ -56,7 +56,7 @@ export default {
         return {
           idd: item,
           text: items[item - 1],
-          src: `/715_Things_GY/things/${itemSrc}.png`,
+          src: `/gy_715/things/${itemSrc}.png`,
         };
       });
     },

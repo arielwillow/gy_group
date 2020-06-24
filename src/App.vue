@@ -81,7 +81,7 @@ export default {
   position: relative;
   width: 15vw;
   height: 15vw;
-  background: url(/715_Things_GY/img/mscBtn.png) no-repeat center / contain;
+  background: url(/gy_715/img/mscBtn.png) no-repeat center / contain;
 }
 .mscDiv2 {
   position: absolute;
@@ -94,7 +94,7 @@ export default {
   position: relative;
   width: 15vw;
   height: 15vw;
-  background: url(/715_Things_GY/img/mscBtn.png) no-repeat center / contain;
+  background: url(/gy_715/img/mscBtn.png) no-repeat center / contain;
   animation: shine 0.75s linear infinite alternate both;
 }
 .mscDiv3 {
@@ -108,7 +108,7 @@ export default {
   position: relative;
   width: 15vw;
   height: 15vw;
-  background: url(/715_Things_GY/img/mscBtn.png) no-repeat center / contain;
+  background: url(/gy_715/img/mscBtn.png) no-repeat center / contain;
   animation: spin 10s linear infinite;
 }
 

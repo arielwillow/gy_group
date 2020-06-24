@@ -3,7 +3,7 @@
     <div
       v-show="selected"
       class="img"
-      :style="{ backgroundImage: `url(/715_Things_GY/things/${id}.png)` }"
+      :style="{ backgroundImage: `url(/gy_715/things/${id}.png)` }"
       @click="toggle"
     >
     </div>

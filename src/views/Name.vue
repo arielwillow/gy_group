@@ -1,16 +1,16 @@
 <template>
   <div class="name">
-    <img class="title" src="/715_Things_GY/img/title.png">
-    <img class="inputBg" src="/715_Things_GY/img/inputBg.png">
+    <img class="title" src="/gy_715/img/title.png">
+    <img class="inputBg" src="/gy_715/img/inputBg.png">
     <input type="text" class="input" v-model="name"/>
     <div class="errTip" v-if="showError">
-      <img class="errImg" src="/715_Things_GY/img/error.png">请输入您的名字哦~
+      <img class="errImg" src="/gy_715/img/error.png">请输入您的名字哦~
     </div>
     <div class="errTip" v-if="!showError">
       <p>PS：可以随意输入，但羊群小伙伴输入准确微博名会有额外小彩蛋掉落~</p>
     </div>
-    <img class="nameSmt" src="/715_Things_GY/img/nextBtn.png" @click="onSubmit">
-    <img class="back" src="/715_Things_GY/img/backBtn.png" @click="backHome">
+    <img class="nameSmt" src="/gy_715/img/nextBtn.png" @click="onSubmit">
+    <img class="back" src="/gy_715/img/backBtn.png" @click="backHome">
   </div>
 </template>
 
@@ -39,56 +39,56 @@ export default {
     },
     preload() {
       const imgs = [
-        '/715_Things_GY/things/22.png',
-        '/715_Things_GY/things/23.png',
-        '/715_Things_GY/things/24.png',
-        '/715_Things_GY/things/25.png',
-        '/715_Things_GY/things/26.png',
-        '/715_Things_GY/things/27.png',
-        '/715_Things_GY/things/28.png',
-        '/715_Things_GY/things/29.png',
-        '/715_Things_GY/things/30.png',
-        '/715_Things_GY/things/31.png',
-        '/715_Things_GY/things/32.png',
-        '/715_Things_GY/things/33.png',
-        '/715_Things_GY/things/34.png',
-        '/715_Things_GY/things/35.png',
-        '/715_Things_GY/things/36.png',
-        '/715_Things_GY/things/37.png',
-        '/715_Things_GY/things/38.png',
-        '/715_Things_GY/things/39.png',
-        '/715_Things_GY/things/40.png',
-        '/715_Things_GY/things/41.png',
-        '/715_Things_GY/things/42.png',
-        '/715_Things_GY/things/43.png',
-        '/715_Things_GY/things/44.png',
-        '/715_Things_GY/things/45.png',
-        '/715_Things_GY/things/46.png',
-        '/715_Things_GY/things/47.png',
-        '/715_Things_GY/things/48.png',
-        '/715_Things_GY/things/49.png',
-        '/715_Things_GY/things/50.png',
-        '/715_Things_GY/things/51.png',
-        '/715_Things_GY/things/52.png',
-        '/715_Things_GY/things/53.png',
-        '/715_Things_GY/things/54.png',
-        '/715_Things_GY/things/55.png',
-        '/715_Things_GY/things/56.png',
-        '/715_Things_GY/things/57.png',
-        '/715_Things_GY/things/58.png',
-        '/715_Things_GY/things/59.png',
-        '/715_Things_GY/things/60.png',
-        '/715_Things_GY/things/61.png',
-        '/715_Things_GY/things/62.png',
-        '/715_Things_GY/things/63.png',
-        '/715_Things_GY/things/64.png',
-        '/715_Things_GY/things/65.png',
-        '/715_Things_GY/things/66.png',
-        '/715_Things_GY/things/67.png',
-        '/715_Things_GY/things/68.png',
-        '/715_Things_GY/things/69.png',
-        '/715_Things_GY/things/70.png',
-        '/715_Things_GY/things/71.png',
+        '/gy_715/things/22.png',
+        '/gy_715/things/23.png',
+        '/gy_715/things/24.png',
+        '/gy_715/things/25.png',
+        '/gy_715/things/26.png',
+        '/gy_715/things/27.png',
+        '/gy_715/things/28.png',
+        '/gy_715/things/29.png',
+        '/gy_715/things/30.png',
+        '/gy_715/things/31.png',
+        '/gy_715/things/32.png',
+        '/gy_715/things/33.png',
+        '/gy_715/things/34.png',
+        '/gy_715/things/35.png',
+        '/gy_715/things/36.png',
+        '/gy_715/things/37.png',
+        '/gy_715/things/38.png',
+        '/gy_715/things/39.png',
+        '/gy_715/things/40.png',
+        '/gy_715/things/41.png',
+        '/gy_715/things/42.png',
+        '/gy_715/things/43.png',
+        '/gy_715/things/44.png',
+        '/gy_715/things/45.png',
+        '/gy_715/things/46.png',
+        '/gy_715/things/47.png',
+        '/gy_715/things/48.png',
+        '/gy_715/things/49.png',
+        '/gy_715/things/50.png',
+        '/gy_715/things/51.png',
+        '/gy_715/things/52.png',
+        '/gy_715/things/53.png',
+        '/gy_715/things/54.png',
+        '/gy_715/things/55.png',
+        '/gy_715/things/56.png',
+        '/gy_715/things/57.png',
+        '/gy_715/things/58.png',
+        '/gy_715/things/59.png',
+        '/gy_715/things/60.png',
+        '/gy_715/things/61.png',
+        '/gy_715/things/62.png',
+        '/gy_715/things/63.png',
+        '/gy_715/things/64.png',
+        '/gy_715/things/65.png',
+        '/gy_715/things/66.png',
+        '/gy_715/things/67.png',
+        '/gy_715/things/68.png',
+        '/gy_715/things/69.png',
+        '/gy_715/things/70.png',
+        '/gy_715/things/71.png',
       ];
       for (let i = 0, len = imgs.length; i < len; i += 1) {
         const image = new Image();
@@ -159,6 +159,7 @@ export default {
   right: 26vw;
   width: 20vw;
   height: 20vw;
+  animation: breathe 1.5s linear infinite alternate both;
 }
 .back {
   position: absolute;
@@ -166,5 +167,17 @@ export default {
   left: 26vw;
   width: 16vw;
   height: 16vw;
+}
+@keyframes breathe {
+  from {
+    width: 20vw;
+    height: 20vw;
+  }
+  to {
+    width: 22vw;
+    height: 22vw;
+    top: calc(63vh - 1vw);
+    right: 25vw;
+  }
 }
 </style>

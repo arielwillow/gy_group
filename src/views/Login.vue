@@ -1,16 +1,16 @@
 <template>
   <div class="login">
-    <img class="title" src="/715_Things_GY/img/title.png">
-    <img class="endingTxt" src="/715_Things_GY/img/endingTxt.png" />
-    <img class="wishBg" src="/715_Things_GY/img/wishBg.png" />
+    <img class="title" src="/gy_715/img/title.png">
+    <img class="endingTxt" src="/gy_715/img/endingTxt.png" />
+    <img class="wishBg" src="/gy_715/img/wishBg.png" />
     <textarea type="text" class="input"
     placeholder="空白提交则使用默认祝福～"
     value="祝高杨24岁生日快乐！" v-model="wish" />
     <div class="errTip" v-if="showError">
-      <img class="errImg" src="/715_Things_GY/img/error.png">字数最好不要超过33哦~
+      <img class="errImg" src="/gy_715/img/error.png">字数最好不要超过33哦~
     </div>
-    <img class="back" src="/715_Things_GY/img/backBtn.png" @click="backList">
-    <img class="wishSmt" src="/715_Things_GY/img/nextBtn.png" @click="onSubmit">
+    <img class="back" src="/gy_715/img/backBtn.png" @click="backList">
+    <img class="wishSmt" src="/gy_715/img/nextBtn.png" @click="onSubmit">
   </div>
 </template>
 
@@ -117,6 +117,7 @@ export default {
   right: 26vw;
   width: 20vw;
   height: 20vw;
+  animation: breathe 1.5s linear infinite alternate both;
 }
 .back {
   position: absolute;
@@ -124,5 +125,17 @@ export default {
   left: 26vw;
   width: 16vw;
   height: 16vw;
+}
+@keyframes breathe {
+  from {
+    width: 20vw;
+    height: 20vw;
+  }
+  to {
+    width: 22vw;
+    height: 22vw;
+    top: calc(75vh - 1vw);
+    right: 25vw;
+  }
 }
 </style>

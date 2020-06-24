@@ -24,41 +24,41 @@ export default {
   methods: {
     preload() {
       const imgs = [
-        '/715_Things_GY/img/mscBtn.png', // app
-        '/715_Things_GY/img/title.png', // home
-        '/715_Things_GY/img/nextBtn.png',
-        '/715_Things_GY/img/con.png',
-        '/715_Things_GY/img/inputBg.png', // name
-        '/715_Things_GY/img/error.png',
-        '/715_Things_GY/img/backBtn.png',
-        '/715_Things_GY/img/selectTop.png', // list
-        '/715_Things_GY/img/endingTxt.png', // wish
-        '/715_Things_GY/img/wishBg.png',
-        '/715_Things_GY/img/avatar.png', // share
-        '/715_Things_GY/img/loading.png',
-        '/715_Things_GY/img/title3.png',
-        '/715_Things_GY/img/backS.png',
-        '/715_Things_GY/things/1.png',
-        '/715_Things_GY/things/2.png',
-        '/715_Things_GY/things/3.png',
-        '/715_Things_GY/things/4.png',
-        '/715_Things_GY/things/5.png',
-        '/715_Things_GY/things/6.png',
-        '/715_Things_GY/things/7.png',
-        '/715_Things_GY/things/8.png',
-        '/715_Things_GY/things/9.png',
-        '/715_Things_GY/things/10.png',
-        '/715_Things_GY/things/11.png',
-        '/715_Things_GY/things/12.png',
-        '/715_Things_GY/things/13.png',
-        '/715_Things_GY/things/14.png',
-        '/715_Things_GY/things/15.png',
-        '/715_Things_GY/things/16.png',
-        '/715_Things_GY/things/17.png',
-        '/715_Things_GY/things/18.png',
-        '/715_Things_GY/things/19.png',
-        '/715_Things_GY/things/20.png',
-        '/715_Things_GY/things/21.png',
+        '/gy_715/img/mscBtn.png', // app
+        '/gy_715/img/title.png', // home
+        '/gy_715/img/nextBtn.png',
+        '/gy_715/img/con.png',
+        '/gy_715/img/inputBg.png', // name
+        '/gy_715/img/error.png',
+        '/gy_715/img/backBtn.png',
+        '/gy_715/img/selectTop.png', // list
+        '/gy_715/img/endingTxt.png', // wish
+        '/gy_715/img/wishBg.png',
+        '/gy_715/img/avatar.png', // share
+        '/gy_715/img/loading.png',
+        '/gy_715/img/title3.png',
+        '/gy_715/img/backS.png',
+        '/gy_715/things/1.png',
+        '/gy_715/things/2.png',
+        '/gy_715/things/3.png',
+        '/gy_715/things/4.png',
+        '/gy_715/things/5.png',
+        '/gy_715/things/6.png',
+        '/gy_715/things/7.png',
+        '/gy_715/things/8.png',
+        '/gy_715/things/9.png',
+        '/gy_715/things/10.png',
+        '/gy_715/things/11.png',
+        '/gy_715/things/12.png',
+        '/gy_715/things/13.png',
+        '/gy_715/things/14.png',
+        '/gy_715/things/15.png',
+        '/gy_715/things/16.png',
+        '/gy_715/things/17.png',
+        '/gy_715/things/18.png',
+        '/gy_715/things/19.png',
+        '/gy_715/things/20.png',
+        '/gy_715/things/21.png',
       ];
       for (let i = 0, len = imgs.length; i < len; i += 1) {
         const image = new Image();

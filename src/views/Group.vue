@@ -1,6 +1,6 @@
 <template>
   <div class="group">
-    <img class="title" src="/715_Things_GY/img/title3.png">
+    <img class="title" src="/gy_715/img/title3.png">
     <div class="txt" style="white-space: pre-line;">
       <p style="text-indent:30px;" >2018年11月13日9时24分，羊群成立。</p>
       <p> </p>
@@ -10,8 +10,8 @@
       <p class="special">{{dayCnt}}</p>
       <p class="right">天&nbsp;&nbsp;</p>
     </div>
-    <img class="next" src="/715_Things_GY/img/nextBtn.png" @click="goShare">
-    <img class="back" src="/715_Things_GY/img/backBtn.png" @click="backLogin">
+    <img class="next" src="/gy_715/img/nextBtn.png" @click="goShare">
+    <img class="back" src="/gy_715/img/backBtn.png" @click="backLogin">
   </div>
 </template>
 
@@ -26,15 +26,22 @@ export default {
     const tmstr = groupInfo[name][2];
     const cntAll = 1294;
     let pct = '。';
-    let cnt = Math.ceil((new Date().getTime() - new Date(tm).getTime()) / (24 * 3600 * 1000));
-    if (Number.isNaN(cnt)) {
-      cnt = Math.ceil((new Date().getTime() - new Date(tm.replace(/-/g, '/')).getTime()) / (24 * 3600 * 1000));
-    }
+    const cnt = Math.round((new Date() - new Date(tm.replace(/-/g, '/'))) / (24 * 3600 * 1000)) + 1;
 
-    if (parseInt(rk, 10) < cntAll * 0.1) {
+    if (parseInt(rk, 10) < cntAll * 0.01) {
+      pct = '，超过了群里99%的乐高。';
+    } else if (parseInt(rk, 10) < cntAll * 0.02) {
+      pct = '，超过了群里98%的乐高。';
+    } else if (parseInt(rk, 10) < cntAll * 0.05) {
+      pct = '，超过了群里95%的乐高。';
+    } else if (parseInt(rk, 10) < cntAll * 0.1) {
       pct = '，超过了群里90%的乐高。';
+    } else if (parseInt(rk, 10) < cntAll * 0.2) {
+      pct = '，超过了群里80%的乐高。';
     } else if (parseInt(rk, 10) < cntAll * 0.3) {
       pct = '，超过了群里70%的乐高。';
+    } else if (parseInt(rk, 10) < cntAll * 0.4) {
+      pct = '，超过了群里60%的乐高。';
     } else if (parseInt(rk, 10) < cntAll * 0.5) {
       pct = '，超过了群里50%的乐高。';
     } else {
@@ -92,12 +99,25 @@ export default {
   right: 26vw;
   width: 20vw;
   height: 20vw;
+  animation: breathe 1.5s linear infinite alternate both;
 }
 .back {
   position: absolute;
-  top: calc(75% + 2vw);
+  top: calc(75vh + 2vw);
   left: 26vw;
   width: 16vw;
   height: 16vw;
+}
+@keyframes breathe {
+  from {
+    width: 20vw;
+    height: 20vw;
+  }
+  to {
+    width: 22vw;
+    height: 22vw;
+    top: calc(75vh - 1vw);
+    right: 25vw;
+  }
 }
 </style>
