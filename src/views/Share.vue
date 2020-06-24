@@ -1,38 +1,47 @@
 /* eslint-disable guard-for-in */
 <template>
   <div class="A" style="background-color:#afc4d3;">
+    <div ref="capture" class="image-content" style="background-color:#afc4d3;">
+      <div class="name" style="vertical-align: middle;display: table-cell;">
+        <img :src="avatarUrl" class="nameImg"/>
+        <div class="name-bottom">
+          <p class="nameClass" style="white-space: pre-line;">{{nameA}}</p>
+        </div>
+      </div>
+      <img src="/gy_715/img/title.png" class="headImg"/>
+      <div class="barA">
+        <div class="finishedA">已完成 {{selectedCount}} 件</div>
+        <div class="qrDiv">
+          <p class="wishtxt">{{wishA}}</p>
+        </div>
+      </div>
+      <div class="imgs">
+        <b-row>
+          <b-col cols="3" class="imgItem" v-for="item in computeItems" :key="item.idd">
+            <img :src="item.src" class="imgI"/>
+            <p class="titleI">{{item.text}}</p>
+          </b-col>
+        </b-row>
+      </div>
+      <p class="footerTxt">图源CR：@高杨_Gyon @高杨的小剧场</p>
+      <p class="footerTxt">@高杨全球粉丝后援会 @保利演出有限公司 @TiAn咸鱼安</p>
+      <p class="footerTxt">样式参考：网易哒哒”人生必做的100件事“</p>
+      <p class="footerTxt">标题设计参考：高杨的冰箱贴</p>
+      <p class="footerTxt">By：德克馒头与豹子头 2020.07.15</p>
+    </div>
+    <div @click="generatorImage" class="imgBtnN" v-if="!isShine">单击然后长按可以保存长截图</div>
+    <div class="imgBtnS" v-if="isShine">单击然后长按可以保存长截图</div>
+    <div class="real_pic" v-if="isShow">
+       <img class="screenshot" :src="imgUrl"/>
+       <img class="screenback" src="/gy_715/img/backS.png" @click="backShot"/>
+    </div>
     <img src="/gy_715/img/backS.png" class="back" @click="backList"/>
-    <div class="name" style="vertical-align: middle;display: table-cell;">
-      <img src="/gy_715/img/avatar.png" class="nameImg"/>
-      <div class="name-bottom">
-        <p class="nameClass" style="white-space: pre-line;">{{nameA}}</p>
-      </div>
-    </div>
-    <img src="/gy_715/img/title.png" class="headImg"/>
-    <div class="barA">
-      <div class="finishedA">已完成 {{selectedCount}} 件</div>
-      <div class="qrDiv">
-        <p class="wishtxt">{{wishA}}</p>
-      </div>
-    </div>
-    <div class="imgs">
-      <b-row>
-        <b-col cols="3" class="imgItem" v-for="item in computeItems" :key="item.idd">
-          <img :src="item.src" class="imgI"/>
-          <p class="titleI">{{item.text}}</p>
-        </b-col>
-      </b-row>
-    </div>
-    <p class="footerTxt">图源CR：@高杨_Gyon @高杨的小剧场</p>
-    <p class="footerTxt">@高杨全球粉丝后援会 @保利演出有限公司 @TiAn咸鱼安</p>
-    <p class="footerTxt">样式参考：网易哒哒”人生必做的100件事“</p>
-    <p class="footerTxt">标题设计参考：高杨的冰箱贴</p>
-    <p class="footerTxt">By：德克馒头与豹子头 2020.07.15</p>
   </div>
 </template>
 
 <script>
 import items from '@/mock/items';
+import html2canvas from 'html2canvas';
 
 export default {
   data() {
@@ -40,13 +49,17 @@ export default {
     if (wish.length === 0) {
       wish = '祝高杨24岁生日快乐～';
     }
+    const rind = 1;
     return {
       selectedItems: this.VAR.Selection,
       selectedCount: this.VAR.Selection.length,
       nameA: this.VAR.Name,
       wishA: wish,
       imgUrl: '',
-      firstFlag: true,
+      isShine: false,
+      isShow: false,
+      rIndex: Math.floor(Math.random() * 10) + 1,
+      avatarUrl: `/gy_715/img/avatar${rind}.png`,
     };
   },
   computed: {
@@ -64,6 +77,20 @@ export default {
   methods: {
     backList() {
       this.$router.go(-1);
+    },
+    generatorImage() {
+      html2canvas(this.$refs.capture, {
+        backgroundColor: null,
+      }).then((canvas) => {
+        const imgUrl = canvas.toDataURL('image/png');
+        this.imgUrl = imgUrl;
+        this.isShow = true;
+        this.isShine = true;
+      });
+    },
+    backShot() {
+      this.isShow = false;
+      this.isShine = false;
     },
   },
 };
@@ -119,6 +146,7 @@ export default {
   line-height: 21px;
   letter-spacing: 1px;
   word-wrap: break-word;
+  word-break: break-all;
 }
 .nameClass {
   width: 100%;
@@ -152,9 +180,6 @@ export default {
 .imgItem {
   width: 18.7vw;
 }
-.newImg {
-  width: 100%;
-}
 .imgI {
   width: 18.7vw;
   height: 18.7vw;
@@ -187,5 +212,45 @@ export default {
   font-weight: bolder;
   height: 16vw;
   line-height: 9.3vw;
+}
+.imgBtnN {
+  position: absolute;
+  top: 63vw;
+  width: 100%;
+  z-index: 200;
+  text-align: center;
+}
+.imgBtnS {
+  position: absolute;
+  top: 63vw;
+  width: 100%;
+  z-index: 200;
+  text-align: center;
+  animation: shine 0.75s linear infinite alternate both;
+}
+.screenshot {
+  position: absolute;
+  left: 5vw;
+  top: 5vh;
+  width: 90vw;
+  z-index: 200;
+  border: 0.5vw solid #d2e0e9;
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px 0px black;
+}
+.screenback {
+  position: absolute;
+  left: 5vw;
+  top: 5vh;
+  width: 3vw;
+  z-index: 300;
+}
+@keyframes shine {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>

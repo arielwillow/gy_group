@@ -34,7 +34,7 @@ export default {
         '/gy_715/img/selectTop.png', // list
         '/gy_715/img/endingTxt.png', // wish
         '/gy_715/img/wishBg.png',
-        '/gy_715/img/avatar.png', // share
+        '/gy_715/img/avatar1.png', // share
         '/gy_715/img/loading.png',
         '/gy_715/img/title3.png',
         '/gy_715/img/backS.png',
