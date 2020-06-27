@@ -6,7 +6,8 @@
         <div class="selectState">已选择</div>
       </div>
     </div>
-    <div ref="wheel" class="listBg" :style="{ animationPlayState }">
+    <div ref="wheel" class="listBg"
+    :style="{ animationPlayState }">
       <list-item
         class="listItem"
         v-for="item in randomItems"
@@ -49,6 +50,7 @@ export default {
       selectedItems: this.VAR.Selection,
       animationPlayState: 'running',
       hhh: h,
+      animation: 'spin 130s linear infinite',
     };
   },
   computed: {
@@ -97,6 +99,13 @@ export default {
         this.selectedItems.push(text);
       }
     },
+    changeStatus() {
+      if (this.animationPlayState === 'paused') {
+        this.animationPlayState = 'running';
+      } else {
+        this.animationPlayState = 'paused';
+      }
+    },
   },
 };
 </script>
@@ -142,8 +151,8 @@ export default {
   width: 270vh;
   height: 270vh;
   border-radius: 50%;
-  animation: spin 125s linear infinite;
   color: #000;
+  animation: spin 125s linear infinite;
 }
 .listItem {
   position: fixed;
@@ -151,11 +160,12 @@ export default {
   left: 50%;
   font-size: 11px;
   letter-spacing: 1px;
+  z-index: 200;
 }
 .tipsDiv {
   text-align: center;
   position: absolute;
-  bottom: 29vh;
+  bottom: 31vh;
   left: 0px;
   right: 0px;
 }
@@ -177,7 +187,7 @@ export default {
 }
 .back {
   position: absolute;
-  bottom: calc(15% + 2vw);
+  bottom: calc(15vh + 2vw);
   left: 26vw;
   width: 16vw;
   height: 16vw;

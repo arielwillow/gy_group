@@ -71,6 +71,17 @@ export default {
         '/gy_715/things/69.png',
         '/gy_715/things/70.png',
         '/gy_715/things/71.png',
+        '/gy_715/img/avatar1.png', // share
+        '/gy_715/img/avatar2.png',
+        '/gy_715/img/avatar3.png',
+        '/gy_715/img/avatar4.png',
+        '/gy_715/img/avatar5.png',
+        '/gy_715/img/avatar6.png',
+        '/gy_715/img/avatar7.png',
+        '/gy_715/img/avatar8.png',
+        '/gy_715/img/avatar9.png',
+        '/gy_715/img/avatar10.png',
+        '/gy_715/img/avatar11.png',
       ];
       for (let i = 0, len = imgs.length; i < len; i += 1) {
         const image = new Image();
@@ -78,7 +89,7 @@ export default {
         image.onload = () => {
           this.count += 1;
           // 计算图片加载的百分数，绑定到percent变量
-          const percentNum = Math.floor((this.count / 50) * 100);
+          const percentNum = Math.floor((this.count / 61) * 100);
           this.percent = `${percentNum}%`;
         };
       }
@@ -87,7 +98,7 @@ export default {
   watch: {
     count(val) {
       // console.log(val)
-      if (val === 50) {
+      if (val === 61) {
         // 图片加载完成后跳转页面
         this.$router.replace({ path: 'list' });
       }

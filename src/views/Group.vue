@@ -26,7 +26,7 @@ export default {
     const tmstr = groupInfo[name][2];
     const cntAll = 1294;
     let pct = '。';
-    const cnt = Math.round((new Date() - new Date(tm.replace(/-/g, '/'))) / (24 * 3600 * 1000)) + 1;
+    const cnt = Math.ceil((new Date().getTime() - new Date(tm.replace(/-/g, '/')).getTime()) / (24 * 3600 * 1000));
 
     if (parseInt(rk, 10) < cntAll * 0.01) {
       pct = '，超过了群里99%的乐高。';

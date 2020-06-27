@@ -34,7 +34,6 @@ export default {
         '/gy_715/img/selectTop.png', // list
         '/gy_715/img/endingTxt.png', // wish
         '/gy_715/img/wishBg.png',
-        '/gy_715/img/avatar1.png', // share
         '/gy_715/img/loading.png',
         '/gy_715/img/title3.png',
         '/gy_715/img/backS.png',
@@ -66,7 +65,7 @@ export default {
         image.onload = () => {
           this.count += 1;
           // 计算图片加载的百分数，绑定到percent变量
-          const percentNum = Math.floor((this.count / 35) * 100);
+          const percentNum = Math.floor((this.count / 34) * 100);
           this.percent = `${percentNum}%`;
         };
       }
@@ -74,7 +73,7 @@ export default {
   },
   watch: {
     count(val) {
-      if (val === 35) {
+      if (val === 34) {
         // 图片加载完成后跳转页面
         this.rout = '/home';
         this.$router.replace({ path: 'home' });

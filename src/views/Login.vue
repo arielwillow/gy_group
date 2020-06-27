@@ -94,7 +94,7 @@ export default {
 }
 .errTip {
   position: absolute;
-  top: calc(40%+33vw);
+  top: calc(40vh+33vw);
   left: 0;
   left: 23vw;
   width: 54vw;

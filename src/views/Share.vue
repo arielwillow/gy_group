@@ -1,7 +1,7 @@
 /* eslint-disable guard-for-in */
 <template>
   <div class="A" style="background-color:#afc4d3;">
-    <div ref="capture" class="image-content" style="background-color:#afc4d3;">
+    <div ref="capture" class="image-content" style="background-color:#afc4d3;" id="bg">
       <div class="name" style="vertical-align: middle;display: table-cell;">
         <img :src="avatarUrl" class="nameImg"/>
         <div class="name-bottom">
@@ -23,14 +23,14 @@
           </b-col>
         </b-row>
       </div>
-      <p class="footerTxt">图源CR：@高杨_Gyon @高杨的小剧场</p>
-      <p class="footerTxt">@高杨全球粉丝后援会 @保利演出有限公司 @TiAn咸鱼安</p>
+      <p class="footerTxt">事件图源CR：@高杨_Gyon @高杨的小剧场 @高杨全球粉丝后援会</p>
+      <p class="footerTxt">@第一次约会音乐剧 @保利演出有限公司 @TiAn咸鱼安</p>
+      <p class="footerTxt">终页头像盲盒图源CR：@红烧鳟鱼不加葱</p>
       <p class="footerTxt">样式参考：网易哒哒”人生必做的100件事“</p>
-      <p class="footerTxt">标题设计参考：高杨的冰箱贴</p>
       <p class="footerTxt">By：德克馒头与豹子头 2020.07.15</p>
     </div>
-    <div @click="generatorImage" class="imgBtnN" v-if="!isShine">单击然后长按可以保存长截图</div>
-    <div class="imgBtnS" v-if="isShine">单击然后长按可以保存长截图</div>
+    <div @click="generatorImage" class="imgBtnN" v-if="!isShine && !isShow">点击生成长截图</div>
+    <div class="imgBtnS" v-if="isShine && !isShow">正在生成，稍等...</div>
     <div class="real_pic" v-if="isShow">
        <img class="screenshot" :src="imgUrl"/>
        <img class="screenback" src="/gy_715/img/backS.png" @click="backShot"/>
@@ -49,7 +49,8 @@ export default {
     if (wish.length === 0) {
       wish = '祝高杨24岁生日快乐～';
     }
-    const rind = 1;
+    // const rind = 1;
+    const rIndex = ((Math.floor(Math.random() * 100)) % 11) + 1;
     return {
       selectedItems: this.VAR.Selection,
       selectedCount: this.VAR.Selection.length,
@@ -58,8 +59,7 @@ export default {
       imgUrl: '',
       isShine: false,
       isShow: false,
-      rIndex: Math.floor(Math.random() * 10) + 1,
-      avatarUrl: `/gy_715/img/avatar${rind}.png`,
+      avatarUrl: `/gy_715/img/avatar${rIndex}.png`,
     };
   },
   computed: {
@@ -79,13 +79,13 @@ export default {
       this.$router.go(-1);
     },
     generatorImage() {
+      this.isShine = true;
       html2canvas(this.$refs.capture, {
         backgroundColor: null,
       }).then((canvas) => {
         const imgUrl = canvas.toDataURL('image/png');
         this.imgUrl = imgUrl;
         this.isShow = true;
-        this.isShine = true;
       });
     },
     backShot() {
@@ -144,12 +144,12 @@ export default {
   display: table;
   font-size: 16px;
   line-height: 21px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   word-wrap: break-word;
   word-break: break-all;
 }
 .nameClass {
-  width: 100%;
+  width: 90%;
   vertical-align: middle;
   text-align: center;
   display:table-cell;
@@ -178,12 +178,12 @@ export default {
   margin-bottom: 0px;
 }
 .imgItem {
-  width: 18.7vw;
+  width: 19vw;
 }
 .imgI {
-  width: 18.7vw;
-  height: 18.7vw;
-  border: 1vw solid #d2e0e9;
+  width: 19vw;
+  height: 19vw;
+  border: 0.5vw solid #d2e0e9;
   border-radius: 50%;
   box-shadow: 0px 1px 3px 0px black;
 }
@@ -194,6 +194,7 @@ export default {
   margin-top: 3px;
 }
 .imgs {
+  margin-top: 17px;
   padding: 10px;
 }
 .barA {
@@ -215,17 +216,20 @@ export default {
 }
 .imgBtnN {
   position: absolute;
-  top: 63vw;
+  top: 65vw;
   width: 100%;
   z-index: 200;
   text-align: center;
+  font-size: 13px;
+  animation: shine 0.75s linear infinite alternate both;
 }
 .imgBtnS {
   position: absolute;
-  top: 63vw;
+  top: 65vw;
   width: 100%;
   z-index: 200;
   text-align: center;
+  font-size: 13px;
   animation: shine 0.75s linear infinite alternate both;
 }
 .screenshot {
@@ -233,17 +237,16 @@ export default {
   left: 5vw;
   top: 5vh;
   width: 90vw;
-  z-index: 200;
+  z-index: 300;
   border: 0.5vw solid #d2e0e9;
-  border-radius: 50%;
   box-shadow: 0px 1px 3px 0px black;
 }
 .screenback {
   position: absolute;
-  left: 5vw;
-  top: 5vh;
+  left: 7vw;
+  top: calc(5vh+2vw);
   width: 3vw;
-  z-index: 300;
+  z-index: 400;
 }
 @keyframes shine {
   0% {
