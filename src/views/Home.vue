@@ -8,13 +8,16 @@
 
 <script>
 export default {
+  data() {
+    return {
+      status: 'origin',
+      already: 0,
+    };
+  },
   methods: {
     toLogin() {
       this.$router.push({ path: 'name' });
     },
-  },
-  mounted() {
-    this.VAR.setGlobalheight(window.innerHeight);
   },
 };
 </script>
@@ -35,13 +38,13 @@ export default {
 }
 .con {
   position: absolute;
-  bottom: calc(10vh + 19vw);
+  bottom: 39vw;
   right: 18vw;
   width: 10vw;
 }
 .entryBtn {
   position: absolute;
-  bottom: 10vh;
+  bottom: 20vw;
   right: 13vw;
   height: 20vw;
   width: 20vw;

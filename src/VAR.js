@@ -3,6 +3,7 @@ export default {
   Wish: '',
   Selection: [],
   Globalheight: 0,
+  isChanged: 0,
   setName(name) {
     this.Name = name;
   },
@@ -14,5 +15,8 @@ export default {
   },
   setGlobalheight(globalh) {
     this.Globalheight = globalh;
+  },
+  setisChanged(ischanged) {
+    this.isChanged = ischanged;
   },
 };

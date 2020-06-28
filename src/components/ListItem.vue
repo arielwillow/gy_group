@@ -59,10 +59,10 @@ export default {
 <style scoped>
 .img {
   position: absolute;
-  top: calc(50% - 3.65vh);
-  left: calc(50% - 3.65vh);
-  width: 7.3vh;
-  height: 7.3vh;
+  top: calc(50% - 8vw);
+  left: calc(50% - 8vw);
+  width: 16vw;
+  height: 16vw;
   background-size: 100%;
   border-radius: 50%;
   box-shadow: -3px 3px #a8a8a8;

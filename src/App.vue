@@ -73,7 +73,7 @@ export default {
 }
 .mscDiv1 {
   position: absolute;
-  bottom: calc(10vh + 45vw);
+  bottom: calc(20vw + 45vw);
   right: 15.5vw;
   z-index: 100;
 }
@@ -85,7 +85,7 @@ export default {
 }
 .mscDiv2 {
   position: absolute;
-  bottom: calc(10vh + 45vw);
+  bottom: calc(20vw + 45vw);
   right: 15.5vw;
   text-align: center;
   z-index: 100;
@@ -99,7 +99,7 @@ export default {
 }
 .mscDiv3 {
   position: absolute;
-  bottom: calc(10vh + 45vw);
+  bottom: calc(20vw + 45vw);
   right: 15.5vw;
   text-align: center;
   z-index: 100;

@@ -41,15 +41,11 @@ export default {
     ListItem,
   },
   data() {
-    let h = this.VAR.Globalheight;
-    if (window.innerHeight > 0.8 * h) {
-      h = window.innerHeight;
-    }
     return {
       items,
       selectedItems: this.VAR.Selection,
       animationPlayState: 'running',
-      hhh: h,
+      // hhh: h,
       animation: 'spin 130s linear infinite',
     };
   },
@@ -86,8 +82,8 @@ export default {
     getConfigByIndex(index) {
       const id = index + 1;
       const angle = ANGLE[index];
-      const radius = this.hhh * RADIUS[index];
-      const top = this.hhh * (1.35 - RADIUS[index]);
+      const radius = document.documentElement.clientWidth * RADIUS[index] * 2;
+      const top = document.documentElement.clientWidth * (1.35 - RADIUS[index]) * 2;
       return {
         id, top, angle, radius,
       };
@@ -145,11 +141,11 @@ export default {
   font-size: 1.5vh;
 }
 .listBg {
-  position: fixed;
-  top: 6vh;
-  left: calc(50% - 135vh);
-  width: 270vh;
-  height: 270vh;
+  position: absolute;
+  top: 12vw;
+  left: -220vw;
+  width: 540vw;
+  height: 540vw;
   border-radius: 50%;
   color: #000;
   animation: spin 125s linear infinite;
