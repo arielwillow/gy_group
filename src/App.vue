@@ -69,10 +69,10 @@ export default {
 <style lang="scss">
 .app {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 .mscDiv1 {
-  position: absolute;
+  position: fixed;
   bottom: calc(20vw + 45vw);
   right: 15.5vw;
   z-index: 100;
@@ -84,7 +84,7 @@ export default {
   background: url(/gy_715/img/mscBtn.png) no-repeat center / contain;
 }
 .mscDiv2 {
-  position: absolute;
+  position: fixed;
   bottom: calc(20vw + 45vw);
   right: 15.5vw;
   text-align: center;
@@ -98,7 +98,7 @@ export default {
   animation: shine 0.75s linear infinite alternate both;
 }
 .mscDiv3 {
-  position: absolute;
+  position: fixed;
   bottom: calc(20vw + 45vw);
   right: 15.5vw;
   text-align: center;
