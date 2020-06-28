@@ -69,7 +69,7 @@ export default {
 <style lang="scss">
 .app {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 .mscDiv1 {
   position: absolute;
