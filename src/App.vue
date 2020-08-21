@@ -75,7 +75,7 @@ export default {
   position: fixed;
   bottom: calc(20vw + 45vw);
   right: 15.5vw;
-  z-index: 100;
+  z-index: 200;
 }
 .mscBtn1 {
   position: relative;
@@ -88,7 +88,7 @@ export default {
   bottom: calc(20vw + 45vw);
   right: 15.5vw;
   text-align: center;
-  z-index: 100;
+  z-index: 200;
 }
 .mscBtn2 {
   position: relative;
@@ -102,7 +102,7 @@ export default {
   bottom: calc(20vw + 45vw);
   right: 15.5vw;
   text-align: center;
-  z-index: 100;
+  z-index: 200;
 }
 .mscBtn3 {
   position: relative;
@@ -111,7 +111,10 @@ export default {
   background: url(/gy_715/img/mscBtn.png) no-repeat center / contain;
   animation: spin 10s linear infinite;
 }
-
+body {
+    margin: 0;
+    padding: 0;
+}
 
 // 页面切换过渡
 

@@ -58,7 +58,7 @@ export default {
   to {
     width: 22vw;
     height: 22vw;
-    bottom: calc(10vh - 1vw);
+    bottom: calc(20vw - 1vw);
     right: 12vw;
   }
 }

@@ -49,7 +49,6 @@ export default {
     if (wish.length === 0) {
       wish = '祝高杨24岁生日快乐～';
     }
-    // const rind = 1;
     const rIndex = ((Math.floor(Math.random() * 100)) % 11) + 1;
     return {
       selectedItems: this.VAR.Selection,
@@ -98,6 +97,7 @@ export default {
 
 <style scoped>
 .A {
+  width: 100%;
   min-height: 100%;
   background-color: #afc4d3;
 }

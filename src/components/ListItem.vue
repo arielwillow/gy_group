@@ -4,13 +4,13 @@
       v-show="selected"
       class="img"
       :style="{ backgroundImage: `url(/gy_715/things/${id}.png)` }"
-      @click="toggle"
+      @click.stop="toggle"
     >
     </div>
     <div
       v-show="!selected"
       ref="text"
-      @click="toggle"
+      @click.stop="toggle"
     >
       {{ text }}
     </div>

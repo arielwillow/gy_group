@@ -1,3 +1,4 @@
+
 import Vue from 'vue';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import App from './App.vue';
@@ -18,3 +19,13 @@ new Vue({
   router,
   render: (h) => h(App),
 }).$mount('#app');
+
+router.beforeEach((to, from, next) => {
+  const p = to.fullPath;
+  if (to.path) {
+    if (window.hmt0) {
+      window.hmt0.push(['_trackPageview', `/#${p}`]);
+    }
+  }
+  next();
+});

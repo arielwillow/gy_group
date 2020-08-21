@@ -7,7 +7,7 @@
       </div>
     </div>
     <div ref="wheel" class="listBg"
-    :style="{ animationPlayState }">
+    :style="{ animationPlayState }" @dblclick="changeStatus">
       <list-item
         class="listItem"
         v-for="item in randomItems"
@@ -22,6 +22,7 @@
     <div>
       <div class="tipsDiv">
       <p class="tips">不用担心错过，还会转回来哒~</p>
+      <p class="tips">双击空白区域可暂停，再次双击恢复~</p>
       </div>
     </div>
     <img class="listSmt" src="/gy_715/img/nextBtn.png"
@@ -142,7 +143,7 @@ export default {
 }
 .listBg {
   position: absolute;
-  top: 12vw;
+  top: 15vw;
   left: -220vw;
   width: 540vw;
   height: 540vw;
