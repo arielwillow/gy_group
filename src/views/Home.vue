@@ -1,22 +1,46 @@
 <template>
   <div class="home">
-    <img class="title" src="/gy_715/img/title.png">
-    <img class="con" src="/gy_715/img/con.png">
-    <img class="entryBtn" src="/gy_715/img/nextBtn.png" @click="toLogin">
+    <img class= "title" src="/gy_group/img/title.png">
+    <img class= "yang1" src="/gy_group/img/yang1.png">
+    <img class= "yang2" src="/gy_group/img/yang2.png">
+    <img class="toCalendar" src="/gy_group/img/nextBtn.png" @click="toCalendar">
+    <div class="txt">
+      <p>流浪羊群｜佛系生长</p>
+      <p>始于2018.11.23</p>
+    </div>
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
+    let day = new Date().getDate();
+    let mon = new Date().getMonth() + 1;
+    const year = new Date().getFullYear();
+
+    if (mon < 10) {
+      mon = ['0', mon].join('');
+    }
+
+    if (day < 10) {
+      day = ['0', day].join('');
+    }
+
+    const arr = [];
+    arr.push(year.toString());
+    arr.push(mon.toString());
+    arr.push(day.toString());
+    const pdate = arr.join('-');
+    this.VAR.setpDate(pdate);
+
     return {
-      status: 'origin',
-      already: 0,
+      test: this.VAR.pDate,
     };
   },
   methods: {
-    toLogin() {
-      this.$router.push({ path: 'name' });
+    toCalendar() {
+      this.$router.push({ path: 'calendar' });
     },
   },
 };
@@ -24,31 +48,43 @@ export default {
 
 <style scoped>
 .home {
-  position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100%;
-  background-color: #afc4d3;
+  background-color: #ffffff;
 }
 .title {
   position: absolute;
-  left: 3vw;
-  top: 15vh;
-  width: 85vw;
-  height: auto;
+  left: 36vw;
+  top: 17vh;
+  width: 26vw;
 }
-.con {
+.yang1 {
   position: absolute;
-  bottom: 39vw;
-  right: 18vw;
-  width: 10vw;
+  right: 60vw;
+  top: 7vh;
+  width: 100vw;
 }
-.entryBtn {
+.yang2 {
   position: absolute;
-  bottom: 20vw;
-  right: 13vw;
-  height: 20vw;
-  width: 20vw;
-  animation: breathe 1.5s linear infinite alternate both;
+  left: 60vw;
+  top: 60vh;
+  width: 100vw;
+}
+.toCalendar {
+  position: absolute;
+  bottom: calc(20vh+8vw);
+  left: calc(47vw-1vh);
+  width: calc(6vw+2vh);
+}
+.txt {
+  position: absolute;
+  width: 100vw;
+  font-size: 12px;
+  font-family: "songti";
+  bottom: 15vh;
+  text-align: center;
+  white-space: pre;
+  line-height: 2px;
 }
 @keyframes breathe {
   from {
@@ -58,8 +94,8 @@ export default {
   to {
     width: 22vw;
     height: 22vw;
-    bottom: calc(20vw - 1vw);
-    right: 12vw;
+    top: calc(75vh - 1vw);
+    right: 39vw;
   }
 }
 </style>

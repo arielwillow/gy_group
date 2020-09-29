@@ -7,6 +7,7 @@ import './directives';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import VAR from './VAR';
+import './styles/font.css';
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

@@ -1,41 +1,81 @@
+
 <template>
   <div class="name">
-    <img class="title" src="/gy_715/img/title.png">
-    <img class="inputBg" src="/gy_715/img/inputBg.png">
-    <input type="text" class="input" v-model="name"/>
+    <p class="title">请输入您的微博ID~</p>
+    <div class="inputBg">
+      <input type="text" class="input" v-model="name"/>
+    </div>
     <div class="errTip" v-if="showError">
-      <img class="errImg" src="/gy_715/img/error.png">请输入您的名字哦~
+      <img class="errImg" src="/gy_group/img/error.png">这样我不知道您是谁哦~
     </div>
-    <div class="errTip" v-if="!showError">
-      <p>PS：可以随意输入，但羊群小伙伴输入准确微博名会有额外小彩蛋掉落~</p>
-    </div>
-    <img class="nameSmt" src="/gy_715/img/nextBtn.png" @click="onSubmit">
-    <img class="back" src="/gy_715/img/backBtn.png" @click="backHome">
+    <img class="nameSmt" src="/gy_group/img/nextBtn.png" @click="onSubmit">
+    <img class="toBack" src="/gy_group/img/backBtn.png" @click="toBack">
   </div>
 </template>
 
 <script>
+import groupInfo from '@/mock/groupInfo';
+
 export default {
   data() {
     return {
       name: this.VAR.Name,
+      userinfo: this.VAR.Userinfo,
+      special1: this.VAR.Special1,
+      special2: this.VAR.Special2,
+      cntall: this.VAR.cntAll,
       showError: false,
+      p_date: this.VAR.pDate,
     };
   },
   methods: {
+    toBack() {
+      this.$router.go(-1);
+    },
     onSubmit() {
-      if (this.name) {
-        // this.$emit('login', this.name);
+      const isGroup = Object.keys(groupInfo).includes(this.name);
+      if (this.name && isGroup) {
+        const userinfo = groupInfo[this.name];
+        const birthDay = userinfo[12];
+        this.VAR.setName(this.name);
+        this.VAR.setUserinfo(userinfo);
+        this.VAR.setcntAll(Object.keys(groupInfo).length);
+        this.showError = false;
+
+        if (birthDay === this.p_date.slice(5)) {
+          this.VAR.setSpecial1(1);
+        } else {
+          this.VAR.setSpecial1(0);
+        }
+        if (userinfo[0].slice(5) === this.p_date.slice(5)) {
+          this.VAR.setSpecial2(1);
+        } else {
+          this.VAR.setSpecial2(0);
+        }
+
+        if (this.VAR.Special1 === 1) {
+          this.$router.push({ path: 'special1' });
+        } else if (this.VAR.Special2 === 1) {
+          this.$router.push({ path: 'special2' });
+        } else {
+          this.$router.push({ path: 'doc1' });
+        }
+      } else if (this.name) {
         this.VAR.setName(this.name);
         this.showError = false;
-        this.$router.push({ path: 'loading' });
+        this.$router.push({ path: 'join' });
+        this.VAR.setSpecial1(0);
+        this.VAR.setSpecial2(0);
+        this.VAR.setUserinfo([]);
+        this.VAR.setcntAll(0);
       } else {
         this.showError = true;
+        this.VAR.setName('');
+        this.VAR.setSpecial1(0);
+        this.VAR.setSpecial2(0);
+        this.VAR.setUserinfo([]);
+        this.VAR.setcntAll(0);
       }
-    },
-    backHome() {
-      this.VAR.setName(this.name);
-      this.$router.push({ path: 'home' });
     },
   },
 };
@@ -43,47 +83,53 @@ export default {
 
 <style scoped>
 .name {
-  width: 100vw;
+  position: relative;
+  width: 100%;
   height: 100%;
-  background-color: #d2e0e9;
+  background-color: #ffffff;
 }
 .title {
   position: absolute;
-  top: 2vw;
-  right: 0vw;
-  width: 28vw;
+  top: 50vh;
+  width: 100vw;
+  font-size: 18px;
+  font-family: "songti";
+  text-align: center;
 }
 .inputBg {
   position: absolute;
+  top: calc(52vh + 40px);
   left: 20vw;
-  top: 24vh;
   width: 60vw;
+  height: 40px;
+  border: 1px solid black;
 }
 .input {
-  position: absolute;
-  left: 20vw;
-  width: 60vw;
-  top: calc(24vh + 14vw);
+  position: relative;
+  width: 95%;
+  height: 95%;
+  font-size: 18px;
+  font-family: "songti";
+  text-align: center;
+  top: 50%;
+  transform: translate(0, -50%);
   outline: 0;
   border: 0;
   padding: 0;
   color: #4b4a4a;
   background: transparent;
-  font-size: 18px;
-  line-height: 25px;
-  text-align: center;
 }
 .errTip {
   position: absolute;
-  top: calc(24vh + 26vw);
+  top: calc(52vh + 90px);
   left: 20vw;
   width: 60vw;
   text-align: center;
-  color: #8d7c84;
   font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "songti";
 }
 .errImg {
   width: 12px;
@@ -91,20 +137,18 @@ export default {
   display: block;
   margin-right: 3px;
 }
+.toBack {
+  position: absolute;
+  top: 3vw;
+  left: 3vw;
+  width: 4vw;
+  height: 4vw;
+}
 .nameSmt {
   position: absolute;
-  top: 63vh;
-  right: 26vw;
-  width: 20vw;
-  height: 20vw;
-  animation: breathe 1.5s linear infinite alternate both;
-}
-.back {
-  position: absolute;
-  top: calc(63vh + 2vw);
-  left: 26vw;
-  width: 16vw;
-  height: 16vw;
+  bottom: calc(20vh+8vw);
+  left: calc(47vw-1vh);
+  width: calc(6vw+2vh);
 }
 @keyframes breathe {
   from {
@@ -114,8 +158,8 @@ export default {
   to {
     width: 22vw;
     height: 22vw;
-    top: calc(63vh - 1vw);
-    right: 25vw;
+    bottom: calc(20vw - 1vw);
+    right: 12vw;
   }
 }
 </style>

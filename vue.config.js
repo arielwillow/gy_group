@@ -23,6 +23,6 @@ module.exports = {
     },
   },
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/gy_715/'
+    ? '/gy_group/'
     : '/',
 };
