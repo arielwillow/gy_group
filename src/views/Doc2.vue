@@ -1,11 +1,8 @@
 <template>
   <div class="doc2">
     <div class="txt" style="white-space: pre-line;">
-      <p style="text-indent:30px;" >上月你的活跃指数为{{act_index}}{{actpct}}</p>
-      <p> </p>
-      <p style="text-indent:30px;" >你的当前活跃等级为{{level_now}}，
-      至下一等级{{level_next}}的升级进度为{{rate_str}}。</p>
-      <p> </p>
+       <p>让我康康是哪只不乖的小羊在冒充男管理！</p>
+       <p>我不会被你骗到的哈哈哈～</p>
     </div>
     <img class="toBack" src="/gy_group/img/backBtn.png" @click="toBack">
   </div>
@@ -13,16 +10,6 @@
 
 <script>
 export default {
-  data() {
-    const info = this.VAR.Userinfo;
-
-    return {
-      act_index: info[3],
-      level_now: info[5],
-      level_next: info[6],
-      rate_str: info[8],
-    };
-  },
   methods: {
     toBack() {
       this.$router.go(-1);
@@ -35,14 +22,26 @@ export default {
 .doc2 {
   width: 100vw;
   height: 100%;
-  background-color: #ffffff;
+  background-color: rgb(254,254,254);
+}
+.txt {
+  position: absolute;
+  width: 60vw;
+  left: 20vw;
+  top: 30vh;
+  font-size: 16px;
+  line-height: 27px;
+  text-indent: 32px;
+  font-family: "songti";
+  word-wrap: break-word;
+  font-display: swap;
 }
 .toBack {
   position: absolute;
-  top: calc(75vh + 2vw);
-  left: 26vw;
-  width: 16vw;
-  height: 16vw;
+  top: 3vw;
+  left: 3vw;
+  width: 5vw;
+  height: 5vw;
 }
 @keyframes breathe {
   from {

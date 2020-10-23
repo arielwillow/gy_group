@@ -20,9 +20,22 @@ export default {
   methods: {
     preload() {
       const imgs = [
-        '/gy_group/img/songti.ttf',
+        '/gy_group/img/announciation.png',
+        '/gy_group/img/back.png',
         '/gy_group/img/backBtn.png',
-        '/gy_group/img/nextBtn.png',
+        '/gy_group/img/birthday.png',
+        '/gy_group/img/error.png',
+        '/gy_group/img/home.png',
+        '/gy_group/img/join.png',
+        '/gy_group/img/report.png',
+        '/gy_group/img/report.jpg',
+        '/gy_group/img/schedule.png',
+        '/gy_group/img/title.png',
+        '/gy_group/img/yang1.png',
+        '/gy_group/img/yang2.png',
+        '/gy_group/img/yang3.png',
+        '/gy_group/img/year1.png',
+        '/gy_group/img/year2.png',
       ];
       for (let i = 0, len = imgs.length; i < len; i += 1) {
         const image = new Image();
@@ -30,7 +43,7 @@ export default {
         image.onload = () => {
           this.count += 1;
           // 计算图片加载的百分数，绑定到percent变量
-          const percentNum = Math.floor((this.count / 3) * 100);
+          const percentNum = Math.floor((this.count / 16) * 100);
           this.percent = `${percentNum}%`;
         };
       }
@@ -38,7 +51,7 @@ export default {
   },
   watch: {
     count(val) {
-      if (val === 2) {
+      if (val === 16) {
         // 图片加载完成后跳转页面
         this.rout = '/home';
         this.$router.replace({ path: 'home' });
@@ -52,6 +65,7 @@ export default {
 .preload {
   width: 100%;
   height: 100%;
+  background-color: rgb(254,254,254);
 }
 .loading-panel {
   position: absolute;

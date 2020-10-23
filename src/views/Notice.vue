@@ -20,7 +20,7 @@ export default {
 .notice {
   width: 100vw;
   height: 100%;
-  background-color: #ffffff;
+  background-color: rgb(254,254,254);
 }
 .toBack {
   position: absolute;

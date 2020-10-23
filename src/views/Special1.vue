@@ -2,9 +2,11 @@
   <div class="special1">
     <div class="txt">
       <p>亲爱的{{name}}</p>
-      <p>生日快乐。</p>
+      <p>在这个特别的日子，</p>
+      <p>愿您万事胜意。</p>
+      <p>生日快乐!</p>
     </div>
-    <img class="anniv" src="/gy_group/img/yang2.png">
+    <img class="anniv" src="/gy_group/img/birthday.png">
     <img class="toNext" src="/gy_group/img/nextBtn.png" @click="toNext">
     <img class="toBack" src="/gy_group/img/backBtn.png" @click="toBack">
   </div>
@@ -38,13 +40,13 @@ export default {
 .special1 {
   width: 100vw;
   height: 100%;
-  background-color: #ffffff;
+  background-color: rgb(254,254,254);
 }
 .txt {
   position: absolute;
   width: 100vw;
-  top: 20vh;
-  font-size: 18px;
+  top: 17vh;
+  font-size: 16px;
   font-family: "songti";
   text-align: center;
   line-height: 15px;
@@ -52,12 +54,12 @@ export default {
 .anniv {
   position: absolute;
   width: 50vw;
-  top: 28vh;
+  top: 35vh;
   left: 25vw;
 }
 .toNext {
   position: absolute;
-  bottom: calc(20vh+8vw);
+  top: calc(75vh-6vw);
   left: calc(47vw-1vh);
   width: calc(6vw+2vh);
 }

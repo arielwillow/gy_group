@@ -1,17 +1,44 @@
 <template>
   <div class="doc1">
-    <div class="txt" style="white-space: pre-line;">
-      <p style="text-indent:30px;" >2018年11月13日9时24分，羊群成立。</p>
-      <p> </p>
-      <p style="text-indent:30px;" >{{joinTime}}，你加入了羊群，是现存成员中的第{{joinRank}}位{{rkPct}}</p>
-      <p> </p>
-      <p style="text-indent:30px;">今天是你在羊群的第</p>
-      <p class="special">{{dayCnt}}</p>
-      <p class="right">天&nbsp;&nbsp;</p>
-      <p class="right">{{anniv}}</p>
+    <div class="docPanel">
+      <div class="updatePanel">
+         <div class="updateTxt">
+           <p>* 数据更新时间：2020.10.23 11:00</p>
+         </div>
+      </div>
+      <div class="actPanel">
+         <div class="actTxt">
+           <p>上月你的活跃指数为{{act_index}}</p>
+           <p>截至当前你的活跃等级为{{level_now}}</p>
+           <p>至下一等级{{level_next}}的升级进度为{{rate_str}}</p>
+         </div>
+      </div>
+      <div class="joinPanel">
+         <div class="joinTxt">
+         <p>你于{{joinTime}}加入了羊群</p>
+         <p>居现存成员第{{joinRank}}位{{rkPct}}</p>
+         <p>今天是你在羊群的第{{dayCnt}}天</p>
+         </div>
+      </div>
+      <div class="namePanel">
+         <p class="nameTxt">{{name}}</p>
+      </div>
     </div>
     <img class="toBack" src="/gy_group/img/backBtn.png" @click="toBack">
-    <img class="toDoc2" src="/gy_group/img/backBtn.png" @click="toDoc2">
+    <div class = "bottomPanel">
+      <div class = "bottom1">
+        <img class="toBack1" src="/gy_group/img/back.png" @click="toCalendar">
+        <p>返回日历</p>
+      </div>
+      <div class = "bottom2">
+        <img class="toName" src="/gy_group/img/report.png" @click="toReport">
+        <p>上月月报</p>
+      </div>
+      <div class = "bottom3">
+        <img class="toNotice" src="/gy_group/img/schedule.png" @click="toNotice">
+        <p>公告栏</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,40 +50,27 @@ export default {
     const tm = info[0];
     const tmstr = info[2];
     const cntall = this.VAR.cntAll;
-    const pdate = this.VAR.pDate;
     let pct = '。';
     const cnt = Math.ceil((new Date().getTime() - new Date(tm.replace(/-/g, '/')).getTime()) / (24 * 3600 * 1000));
-    let a = '';
 
     if (parseInt(rk, 10) < cntall * 0.01) {
-      pct = '，超过了群里99%的乐高。';
+      pct = '，早于99%成员';
     } else if (parseInt(rk, 10) < cntall * 0.02) {
-      pct = '，超过了群里98%的乐高。';
+      pct = '，早于98%成员';
     } else if (parseInt(rk, 10) < cntall * 0.05) {
-      pct = '，超过了群里95%的乐高。';
+      pct = '，早于95%成员';
     } else if (parseInt(rk, 10) < cntall * 0.1) {
-      pct = '，超过了群里90%的乐高。';
+      pct = '，早于90%成员';
     } else if (parseInt(rk, 10) < cntall * 0.2) {
-      pct = '，超过了群里80%的乐高。';
+      pct = '，早于80%成员';
     } else if (parseInt(rk, 10) < cntall * 0.3) {
-      pct = '，超过了群里70%的乐高。';
+      pct = '，早于70%成员';
     } else if (parseInt(rk, 10) < cntall * 0.4) {
-      pct = '，超过了群里60%的乐高。';
+      pct = '，早于60%成员';
     } else if (parseInt(rk, 10) < cntall * 0.5) {
-      pct = '，超过了群里50%的乐高。';
+      pct = '，早于50%成员';
     } else {
       pct = '。';
-    }
-
-    if (info[10] !== 'na' && info[10] !== '' && info[9] > pdate) {
-      a = [];
-      a.push(parseInt(info[9].slice(5, 7), 10).toString());
-      a.push('月');
-      a.push(parseInt(info[9].slice(8, 10), 10).toString());
-      a.push('日，你将迎来的你在这里的');
-      a.push(info[10]);
-      a.push('纪念日');
-      a = a.join('');
     }
 
     return {
@@ -64,15 +78,25 @@ export default {
       joinRank: rk,
       rkPct: pct,
       dayCnt: cnt,
-      anniv: a,
+      act_index: info[3],
+      level_now: info[5],
+      level_next: info[6],
+      rate_str: info[8],
+      name: this.VAR.Name,
     };
   },
   methods: {
+    toCalendar() {
+      this.$router.push({ path: 'calendar' });
+    },
+    toReport() {
+      this.$router.push({ path: 'report' });
+    },
+    toNotice() {
+      this.$router.push({ path: 'notice' });
+    },
     toBack() {
       this.$router.go(-1);
-    },
-    toDoc2() {
-      this.$router.push({ path: 'doc2' });
     },
   },
 };
@@ -82,22 +106,191 @@ export default {
 .doc1 {
   width: 100vw;
   height: 100%;
-  background-color: #ffffff;
+  background-color: rgb(254,254,254);
+}
+.docPanel {
+  position: absolute;
+  right: 8vw;
+  top: 15vh;
+  width: 84vw;
+  height: 112vw;
+  border: 2.5px solid black;
+  display:flex;
+  flex-direction: row;
+}
+.namePanel {
+  position: relative;
+  width: 25%;
+  height: 80%;
+  top: 10%;
+  margin: 0;
+  text-align: center;
+  display: table;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: rl-tb;
+  writing-mode: vertical-rl;
+}
+.nameTxt {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 23px;
+  font-family: "songti";
+  line-height: 23px;
+  word-wrap: break-word;
+  text-align: left;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
+}
+.joinPanel {
+  position: relative;
+  width: 36%;
+  height: 80%;
+  top: 10%;
+  margin: 0;
+  text-align: center;
+  display: table;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: rl-tb;
+  writing-mode: vertical-rl;
+  border-right: 1px solid black;
+}
+.joinTxt {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 11px;
+  text-indent: 16px;
+  font-family: "songti";
+  white-space: pre-wrap;
+  text-align: left;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
+}
+.actPanel {
+  position: relative;
+  width: 36%;
+  height: 80%;
+  top: 10%;
+  margin: 0;
+  text-align: center;
+  display: table;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: rl-tb;
+  writing-mode: vertical-rl;
+  border-right: 1px solid black;
+}
+.actTxt {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 11px;
+  text-indent: 16px;
+  font-family: "songti";
+  white-space: pre-wrap;
+  text-align: left;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
+}
+.updatePanel {
+  position: relative;
+  width: 3%;
+  height: 80%;
+  top: 10%;
+  margin: 0;
+  text-align: center;
+  display: table;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: rl-tb;
+  writing-mode: vertical-rl;
+}
+.updateTxt {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 8px;
+  font-family: "songti";
+  white-space: pre-wrap;
+  text-align: right;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
 }
 .toBack {
   position: absolute;
-  top: calc(75vh + 2vw);
-  left: 26vw;
-  width: 16vw;
-  height: 16vw;
+  top: 3vw;
+  left: 3vw;
+  width: 5vw;
+  height: 5vw;
 }
-.toDoc2 {
+.bottomPanel {
   position: absolute;
-  bottom: 20vw;
-  right: 13vw;
+  right: 10vw;
+  top: calc(20vh+112vw);
+  width: 45vw;
   height: 20vw;
-  width: 20vw;
-  animation: breathe 1.5s linear infinite alternate both;
+  display:flex;
+  flex-direction: row;
+}
+.bottom1 {
+  position: relative;
+  width: 33%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 9px;
+  font-family: "songti";
+}
+.toBack1 {
+  position: relative;
+  width: 70%;
+}
+.bottom2 {
+  position: relative;
+  width: 33%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 9px;
+  font-family: "songti";
+}
+.toName {
+  position: relative;
+  width: 70%;
+}
+.bottom3 {
+  position: relative;
+  width: 33%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 9px;
+  font-family: "songti";
+}
+.toNotice {
+  position: relative;
+  width: 70%;
+}
+.toBack {
+  position: absolute;
+  top: 3vw;
+  left: 3vw;
+  width: 5vw;
+  height: 5vw;
 }
 @keyframes breathe {
   from {

@@ -1,10 +1,11 @@
 <template>
    <div class="join">
+     <img class="joinPic" src="/gy_group/img/join.png">
     <div class="txt">
       <p>Oops，这里还找不到您哦～</p>
-      <p>欢迎扫描下图加入羊群～</p>
+      <p>可能您尚未加入或者加入时间不足一个月～</p>
+      <p>欢迎微博扫描下图加入羊群～</p>
     </div>
-    <img class="joinPic" src="/gy_group/img/yang2.png">
     <img class="toBack" src="/gy_group/img/backBtn.png" @click="toBack">
   </div>
 </template>
@@ -24,21 +25,23 @@ export default {
 .join {
   width: 100vw;
   height: 100%;
-  background-color: #ffffff;
+  background-color: rgb(254,254,254);
 }
 .txt {
   position: absolute;
   width: 100vw;
   top: 20vh;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 27px;
   font-family: "songti";
   text-align: center;
-  line-height: 15px;
+  word-wrap: break-word;
+  font-display: swap;
 }
 .joinPic {
   position: absolute;
   width: 50vw;
-  top: 28vh;
+  top: 38vh;
   left: 25vw;
 }
 .toBack {

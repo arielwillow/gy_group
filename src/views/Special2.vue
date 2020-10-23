@@ -1,11 +1,13 @@
 <template>
   <div class="special2">
     <div class="txt">
-      <p>Hi，{{name}}</p>
-      <p>{{joinDate}},你加入了羊群</p>
-      <p>感恩遇见，相伴{{year}}年</p>
+      <p>Hi，{{name}}，</p>
+      <p>{{year}}年前的今天</p>
+      <p>{{joinDate}}</p>
+      <p>你加入了羊群</p>
+      <p>很高兴在这里遇见你</p>
     </div>
-    <img class="anniv" src="/gy_group/img/yang2.png">
+    <img class="anniv" :src="imgUrl">
     <img class="toNext" src="/gy_group/img/nextBtn.png" @click="toNext">
     <img class="toBack" src="/gy_group/img/backBtn.png" @click="toBack">
   </div>
@@ -15,12 +17,14 @@
 
 export default {
   data() {
-    // const joinyear = parseInt(this.VAR.Userinfo[0].split('-')[0], 10);
-    // const yearnow = parseInt(this.pDate.split('-')[0], 10);
+    const joinyear = parseInt(this.VAR.Userinfo[0].split('-')[0], 10);
+    const yearnow = parseInt(this.VAR.pDate.split('-')[0], 10);
+    const y = yearnow - joinyear;
     return {
       name: this.VAR.Name,
       joinDate: this.VAR.Userinfo[2],
-      // year: yearnow - joinyear,
+      year: y,
+      imgUrl: `/gy_group/img/year${y}.png`,
     };
   },
   methods: {
@@ -38,26 +42,26 @@ export default {
 .special2 {
   width: 100vw;
   height: 100%;
-  background-color: #ffffff;
+  background-color: rgb(254,254,254);
 }
 .txt {
   position: absolute;
   width: 100vw;
-  top: 20vh;
-  font-size: 18px;
+  top: 17vh;
+  font-size: 16px;
   font-family: "songti";
   text-align: center;
   line-height: 10px;
 }
 .anniv {
   position: absolute;
-  width: 50vw;
-  top: 28vh;
+  width: 40vw;
+  top: 35vh;
   left: 25vw;
 }
 .toNext {
   position: absolute;
-  bottom: calc(20vh+8vw);
+  top: calc(75vh-6vw);
   left: calc(47vw-1vh);
   width: calc(6vw+2vh);
 }

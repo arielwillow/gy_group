@@ -1,5 +1,6 @@
 <template>
   <div class="calendar">
+    <img class="toBack" src="/gy_group/img/backBtn.png" @click="toBack">
     <div class="topPanel">
       <div class = "leftPanel">
         <div class="day">
@@ -13,24 +14,24 @@
         </div>
       </div>
       <div class = "sourcePanel">
-        <p class="sourceTxt">——来源：测试测试测试</p>
+        <p class="sourceTxt">{{source}}</p>
       </div>
       <div class = "storyPanel">
-        <p class="storyTxt">在我小时候，我爸是摆卡拉OK的；就是那种在公园里面摆几个音箱，
-        拿一盘或者很多很多碟啊、磁带啊，接一个小麦克风，然后五毛钱或是一块钱点一首歌这样去唱。
-        我觉得那个时候的歌，怎么说呢，有一种真实感。对我来说，那种真实感很重要，
-        真正可以听到某种情绪或是这个人、这首歌想表达的东西。\n\n</p>
+        <p class="storyTxt">{{detail}}</p>
       </div>
     </div>
     <div class = "bottomPanel">
       <div class = "bottom1">
-        <img class="toBack" src="/gy_group/img/backBtn.png" @click="toBack">
+        <img class="toBack1" src="/gy_group/img/back.png" @click="toHome">
+        <p>返回主页</p>
       </div>
       <div class = "bottom2">
-        <img class="toName" src="/gy_group/img/nextBtn.png" @click="toName">
+        <img class="toName" src="/gy_group/img/home.png" @click="toName">
+        <p>羊群档案</p>
       </div>
       <div class = "bottom3">
-        <img class="toNotice" src="/gy_group/img/nextBtn.png" @click="toNotice">
+        <img class="toNotice" src="/gy_group/img/schedule.png" @click="toNotice">
+        <p>公告栏</p>
       </div>
     </div>
   </div>
@@ -41,12 +42,33 @@ import calendar from '@/mock/calendar';
 
 export default {
   data() {
-    const dateInfo = calendar[this.VAR.pDate];
+    let day = new Date().getDate();
+    let mon = new Date().getMonth() + 1;
+    const year = new Date().getFullYear();
+
+    if (mon < 10) {
+      mon = ['0', mon].join('');
+    }
+
+    if (day < 10) {
+      day = ['0', day].join('');
+    }
+
+    const arr = [];
+    arr.push(year.toString());
+    arr.push(mon.toString());
+    arr.push(day.toString());
+    const pdate = arr.join('-');
+    this.VAR.setpDate(pdate);
+    const dateInfo = calendar[pdate];
+
     return {
-      p_date: this.VAR.pDate,
+      p_date: pdate,
       day: dateInfo[0],
       dayOther: dateInfo[1],
       history: dateInfo[2],
+      detail: dateInfo[3],
+      source: dateInfo[4],
     };
   },
   methods: {
@@ -59,6 +81,9 @@ export default {
     toNotice() {
       this.$router.push({ path: 'notice' });
     },
+    toHome() {
+      this.$router.push({ path: 'home' });
+    },
   },
 };
 </script>
@@ -67,14 +92,14 @@ export default {
 .calendar {
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
+  background-color: rgb(254,254,254);
 }
 .topPanel {
   position: absolute;
   right: 8vw;
   top: 15vh;
   width: 84vw;
-  height: calc(25vh+56vw);
+  height: 112vw;
   border: 2.5px solid black;
   display:flex;
   flex-direction: row;
@@ -82,91 +107,147 @@ export default {
 .leftPanel {
   position: relative;
   width: 25%;
+  height: 100%;
   border-right: 1px solid black;
   display:flex;
   flex-direction: column;
 }
 .day {
   position: relative;
-  height: 15%;
-  border-bottom: 1px solid black;
-  text-align: center;
-  margin: 0 auto;
+  height: 20%;
+  width: 100%;
+  text-align:center;
+  display: table;
 }
 .dayTxt {
-  font-size: 50px;
-  font-family: "songti";
-}
-.dayother {
   position: relative;
-  height: 15%;
-  border-bottom: 1px solid black;
-  text-align: center;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 70px;
+  font-family: "songti";
+  outline: 0;
+  border: 0;
+  padding: 0;
   margin: 0 auto;
-  white-space: pre;
-  line-height: 5%;
+  text-align:center;
+  display: table-cell;
+  vertical-align: middle;
+}
+.dayother{
+  position: relative;
+  height: 20%;
+  width: 100%;
+  text-align:center;
+  display: table;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
 }
 .dayotherTxt{
-  font-size: 20px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 18px;
   font-family: "songti";
+  white-space: pre-wrap;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  margin: 0 auto;
+  text-align:center;
+  display: table-cell;
+  vertical-align: middle;
+  line-height:21px;
 }
 .history {
   position: relative;
-  height: 70%;
+  height: 60%;
+  width: 100%;
+  display: table;
+  margin: 0;
   text-align: center;
 }
 .historyTxt {
-  font-size: 20px;
+  position: relative;
+  width: 90%;
+  height: 90%;
+  font-size: 13px;
   font-family: "songti";
-  writing-mode: tb-rl;
-  writing-mode: vertical-rl;
-  bottom: 0;
+  margin: 0 auto;
+  text-align: center;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 22px;
+  word-wrap: break-word;
+  font-display: swap;
 }
 .sourcePanel {
   position: relative;
   width: 15%;
-  border-right: 1px solid black;
-  text-align: bottom;
-  display:table-cell;
-  vertical-align: center;
+  height: 80%;
+  top: 10%;
+  margin: 0;
+  text-align: center;
+  display: table;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: rl-tb;
+  writing-mode: vertical-rl;
 }
 .sourceTxt {
   position: relative;
-  width: 90%;
-  left: 5%;
-  height: 90%;
-  top: 5%;
-  font-size: 15px;
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
   font-family: "songti";
-  writing-mode: tb-rl;
-  writing-mode: vertical-rl;
-  word-wrap: break-word;
+  text-align: right;
   font-display: swap;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 .storyPanel {
   position: relative;
   width: 60%;
-  display:table-cell;
-  vertical-align: center;
+  height: 80%;
+  top: 10%;
+  margin: 0;
+  text-align: center;
+  display: table;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: rl-tb;
+  writing-mode: vertical-rl;
 }
 .storyTxt {
   position: relative;
-  width: 90%;
-  left: 5%;
-  height: 90%;
-  top: 5%;
-  font-size: 16px;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 17px;
+  line-height: 28px;
+  text-indent: 34px;
   font-family: "songti";
-  margin: 0 auto;
-  writing-mode: tb-rl;
-  writing-mode: vertical-rl;
   word-wrap: break-word;
   font-display: swap;
+  text-align: left;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
 }
 .bottomPanel {
   position: absolute;
   right: 10vw;
-  top: calc(45vh+56vw);
+  top: calc(20vh+112vw);
   width: 45vw;
   height: 20vw;
   display:flex;
@@ -177,8 +258,10 @@ export default {
   width: 33%;
   margin: 0 auto;
   text-align: center;
+  font-size: 9px;
+  font-family: "songti";
 }
-.toBack {
+.toBack1 {
   position: relative;
   width: 70%;
 }
@@ -187,6 +270,8 @@ export default {
   width: 33%;
   margin: 0 auto;
   text-align: center;
+  font-size: 9px;
+  font-family: "songti";
 }
 .toName {
   position: relative;
@@ -197,10 +282,19 @@ export default {
   width: 33%;
   margin: 0 auto;
   text-align: center;
+  font-size: 9px;
+  font-family: "songti";
 }
 .toNotice {
   position: relative;
   width: 70%;
+}
+.toBack {
+  position: absolute;
+  top: 3vw;
+  left: 3vw;
+  width: 5vw;
+  height: 5vw;
 }
 @keyframes breathe {
   from {

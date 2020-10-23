@@ -1,6 +1,7 @@
 
 <template>
   <div class="name">
+    <img class="yang3" src="/gy_group/img/yang3.png">
     <p class="title">请输入您的微博ID~</p>
     <div class="inputBg">
       <input type="text" class="input" v-model="name"/>
@@ -34,9 +35,18 @@ export default {
     },
     onSubmit() {
       const isGroup = Object.keys(groupInfo).includes(this.name);
-      if (this.name && isGroup) {
+
+      if (this.name === '高杨_Gyon' || this.name === '黄子弘凡_Lars' || this.name === '代玮代玮') {
+        this.$router.push({ path: 'doc2' });
+        this.showError = false;
+        this.VAR.setName(this.name);
+        this.VAR.setSpecial1(0);
+        this.VAR.setSpecial2(0);
+        this.VAR.setUserinfo([]);
+        this.VAR.setcntAll(0);
+      } else if (this.name && isGroup) {
         const userinfo = groupInfo[this.name];
-        const birthDay = userinfo[12];
+        const birthDay = userinfo[9];
         this.VAR.setName(this.name);
         this.VAR.setUserinfo(userinfo);
         this.VAR.setcntAll(Object.keys(groupInfo).length);
@@ -95,6 +105,12 @@ export default {
   font-size: 18px;
   font-family: "songti";
   text-align: center;
+}
+.yang3 {
+  position: absolute;
+  right: 0vw;
+  top: 10vh;
+  width: 35vw;
 }
 .inputBg {
   position: absolute;

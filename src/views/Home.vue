@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <img class= "title" src="/gy_group/img/title.png">
     <img class= "yang1" src="/gy_group/img/yang1.png">
     <img class= "yang2" src="/gy_group/img/yang2.png">
+    <img class= "title" src="/gy_group/img/title.png">
     <img class="toCalendar" src="/gy_group/img/nextBtn.png" @click="toCalendar">
     <div class="txt">
       <p>流浪羊群｜佛系生长</p>
-      <p>始于2018.11.23</p>
+      <p>始于2018.11.13</p>
     </div>
   </div>
 </template>
@@ -14,30 +14,6 @@
 <script>
 
 export default {
-  data() {
-    let day = new Date().getDate();
-    let mon = new Date().getMonth() + 1;
-    const year = new Date().getFullYear();
-
-    if (mon < 10) {
-      mon = ['0', mon].join('');
-    }
-
-    if (day < 10) {
-      day = ['0', day].join('');
-    }
-
-    const arr = [];
-    arr.push(year.toString());
-    arr.push(mon.toString());
-    arr.push(day.toString());
-    const pdate = arr.join('-');
-    this.VAR.setpDate(pdate);
-
-    return {
-      test: this.VAR.pDate,
-    };
-  },
   methods: {
     toCalendar() {
       this.$router.push({ path: 'calendar' });
@@ -50,38 +26,38 @@ export default {
 .home {
   width: 100vw;
   height: 100%;
-  background-color: #ffffff;
+  background-color: rgb(254,254,254);
 }
 .title {
   position: absolute;
   left: 36vw;
-  top: 17vh;
+  top: 14vh;
   width: 26vw;
 }
 .yang1 {
   position: absolute;
-  right: 60vw;
-  top: 7vh;
-  width: 100vw;
+  left: 0vw;
+  top: 7vw;
+  width: 40vw;
 }
 .yang2 {
   position: absolute;
-  left: 60vw;
-  top: 60vh;
-  width: 100vw;
+  right: 0vw;
+  top: 45vh;
+  width: 55vw;
 }
 .toCalendar {
   position: absolute;
-  bottom: calc(20vh+8vw);
-  left: calc(47vw-1vh);
-  width: calc(6vw+2vh);
+  top: calc(75vh-6vw);
+  left: calc(47vw-1.5vh);
+  width: calc(6vw+3vh);
 }
 .txt {
   position: absolute;
   width: 100vw;
   font-size: 12px;
   font-family: "songti";
-  bottom: 15vh;
+  top: 82vh;
   text-align: center;
   white-space: pre;
   line-height: 2px;
