@@ -2,7 +2,7 @@
   <div class="notice">
     <img class="toBack" src="/gy_group/img/backBtn.png" @click="toBack">
     <p class="title">羊群月报｜2020.10</p>
-    <p class="subtitle">制作：@Waldeinsamkeit·H</p>
+    <p class="subtitle">制作：@荷花园卖花卷</p>
     <img class="content" src="/gy_group/img/report.jpg">
   </div>
 </template>

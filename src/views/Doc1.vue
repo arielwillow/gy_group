@@ -3,14 +3,14 @@
     <div class="docPanel">
       <div class="updatePanel">
          <div class="updateTxt">
-           <p>* 数据更新时间：2020.10.23 11:00</p>
+           <p>* 数据更新时间：2020.11.05 11:00</p>
          </div>
       </div>
       <div class="actPanel">
          <div class="actTxt">
            <p>上月你的活跃指数为{{act_index}}</p>
            <p>截至当前你的活跃等级为{{level_now}}</p>
-           <p>至下一等级{{level_next}}的升级进度为{{rate_str}}</p>
+           <p>{{next_txt}}</p>
          </div>
       </div>
       <div class="joinPanel">
@@ -52,6 +52,23 @@ export default {
     const cntall = this.VAR.cntAll;
     let pct = '。';
     const cnt = Math.ceil((new Date().getTime() - new Date(tm.replace(/-/g, '/')).getTime()) / (24 * 3600 * 1000));
+    let txt = '';
+    if (info[5] === 'LV7') {
+      txt = '已为最高等级';
+    } else if (info[5] === 'LV6') {
+      const arr = [];
+      arr.push('累计活跃度为');
+      arr.push(info[10]);
+      arr.push('，暂无升级进度');
+      txt = arr.join('');
+    } else {
+      const arr = [];
+      arr.push('至下一等级');
+      arr.push(info[6]);
+      arr.push('的升级进度为');
+      arr.push(info[8]);
+      txt = arr.join('');
+    }
 
     if (parseInt(rk, 10) < cntall * 0.01) {
       pct = '，早于99%成员';
@@ -80,9 +97,8 @@ export default {
       dayCnt: cnt,
       act_index: info[3],
       level_now: info[5],
-      level_next: info[6],
-      rate_str: info[8],
       name: this.VAR.Name,
+      next_txt: txt,
     };
   },
   methods: {

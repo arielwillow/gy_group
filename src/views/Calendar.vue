@@ -59,6 +59,7 @@ export default {
     arr.push(mon.toString());
     arr.push(day.toString());
     const pdate = arr.join('-');
+    // const pdate = '2020-10-28';
     this.VAR.setpDate(pdate);
     const dateInfo = calendar[pdate];
 
