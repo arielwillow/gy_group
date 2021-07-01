@@ -17,6 +17,7 @@ export default {
   mounted() {
     this.preload();
   },
+  
   methods: {
     preload() {
       const imgs = [
